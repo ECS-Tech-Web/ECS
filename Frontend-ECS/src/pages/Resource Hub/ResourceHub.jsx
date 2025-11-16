@@ -124,9 +124,6 @@ const ResourceHub = () => {
     { name: "maths part 1.pdf", link: "https://drive.google.com/uc?export=download&id=1o-F90QYEIBc_JgbaK2LCQCJUpbMhmrFQ" }
   ],
   [],
-  [
-    {name:"pyqs",link:"https://drive.google.com/file/d/1T1cLlzn2PtYUqrINWUFM6Su2ncohI2fl/view?usp=drivesdk"}
-  ]
  
     
   ];
@@ -670,7 +667,8 @@ const subjects = [
       "Communicative English",
       "Basic Electrical Engineering",
       "Engineering Graphics & Design",
-      "Mathematics II"]
+      "Mathematics II",
+    ]
     ,
     ["Mathematics III",
       "Electronics Devices",
