@@ -8,10 +8,10 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 const sliderData = [
   "https://i.postimg.cc/pr4TG9Jb/Whats-App-Image-2025-01-16-at-09-05-32-ebfbac7c.jpg",
-  "https://res.cloudinary.com/nikks/image/upload/v1736972285/a5_oinkxp.jpg",
-  "https://res.cloudinary.com/nikks/image/upload/v1736972285/a4_vhhoi5.jpg",
   "https://i.postimg.cc/kMcv17SV/IMG-20231122-WA0042.jpg",
-  "https://i.postimg.cc/zv0wVkNw/IMG-20240421-WA0009.jpg"
+  "https://i.postimg.cc/zv0wVkNw/IMG-20240421-WA0009.jpg",
+  "https://i.postimg.cc/CLhSbXRr/spectrum3.jpg",
+  "https://i.postimg.cc/wv2bzf95/oreint.jpg",
 ];
 
 const More = () => {

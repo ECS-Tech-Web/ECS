@@ -6,6 +6,7 @@ const cardsData = [
     { title: "Kasish Sahu", description: "Senior Executive", imageUrl: "https://i.postimg.cc/pX69fGnR/kasish.png" },
     { title: "Aditya Sharma", description: "Senior Executive", imageUrl: "https://i.postimg.cc/JhGCbxZV/aditya.png" },
     { title: "Subrata Lodh", description: "Technical Head", imageUrl: "https://i.postimg.cc/bN3rz6R1/subrata.png" },
+    { title: "Namrata Nayak", description: " Literary & PR Head", imageUrl: "https://i.postimg.cc/QVL2sZyj/namrata.png" },
     { title: "Tejas Pandey", description: "Treasurer", imageUrl: "https://i.postimg.cc/26cpdszk/Background-Eraser-20250902-231256600.png" },
    { title: "Manisha Saloi", description: "Media & Graphics Design Head", imageUrl: "https://i.postimg.cc/YCw2L5W3/manisha-1.png" },
     { title: "Krrish Khandelia", description: "Junior Executive", imageUrl: "https://i.postimg.cc/43qvgj0n/IMG-20250902-205737.png" },

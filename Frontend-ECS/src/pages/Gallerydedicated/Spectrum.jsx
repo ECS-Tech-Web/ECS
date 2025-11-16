@@ -7,11 +7,11 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 const sliderData = [
-  "https://res.cloudinary.com/nikks/image/upload/v1736972110/s4_xcsiax.jpg",
-  "https://res.cloudinary.com/nikks/image/upload/v1736972112/s3_jdj3ry.jpg",
   "https://i.postimg.cc/L5LcTCnB/Spectrumfit.jpg",
   "https://i.postimg.cc/5tVHWCdf/IMG-20240121-170209.jpg",
-  "https://res.cloudinary.com/nikks/image/upload/v1736972109/s2_jo33tx.jpg",
+  "https://i.postimg.cc/CLhSbXRr/spectrum3.jpg",
+  "https://i.postimg.cc/rmG2rNcP/spectrum2.jpg",
+  "https://i.postimg.cc/L8qdTp2B/spectrumrelay.jpg"
 ];
 
 const Spectrum = () => {

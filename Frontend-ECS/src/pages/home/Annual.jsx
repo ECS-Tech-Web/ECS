@@ -51,7 +51,7 @@ const Annual = () => {
             "https://i.postimg.cc/rpBGJhYV/Whats-App-Image-2025-01-15-at-19-48-18-45437702.jpg",
     },
     {
-      title: "Utkrishtha",
+      title: "Utkrishta",
       description: "ECS hosts Utkrishta, a vibrant fresher’s event to welcome the new ECE batch. The celebration fills with fun activities, introductions, and opportunities for students to bond with peers and seniors.New comer batch showcase their talent to crown the title of Mr.Utkrishta and Miss.Utkrishta and make memories of a lifetime.",
       image:
         "https://i.postimg.cc/CLCJ3Yys/MJ-9663.jpg",
@@ -82,7 +82,7 @@ const Annual = () => {
             "https://i.postimg.cc/rpBGJhYV/Whats-App-Image-2025-01-15-at-19-48-18-45437702.jpg",
     },
     {
-      title: "Utkrishtha",
+      title: "Utkrishta",
       description: "ECS hosts Utkrishta, a vibrant fresher’s event to welcome the new ECE batch. The celebration fills with fun activities, introductions, and opportunities for students to bond with peers and seniors.New comer batch showcase their talent to crown the title of Mr.Utkrishta and Miss.Utkrishta and make memories of a lifetime.",
       image:
         "https://i.postimg.cc/CLCJ3Yys/MJ-9663.jpg",
@@ -113,7 +113,7 @@ const Annual = () => {
             "https://i.postimg.cc/rpBGJhYV/Whats-App-Image-2025-01-15-at-19-48-18-45437702.jpg",
     },
     {
-      title: "Utkrishtha",
+      title: "Utkrishta",
       description: "ECS hosts Utkrishta, a vibrant fresher’s event to welcome the new ECE batch. The celebration fills with fun activities, introductions, and opportunities for students to bond with peers and seniors.New comer batch showcase their talent to crown the title of Mr.Utkrishta and Miss.Utkrishta and make memories of a lifetime.",
       image:
         "https://i.postimg.cc/CLCJ3Yys/MJ-9663.jpg",
@@ -144,7 +144,7 @@ const Annual = () => {
             "https://i.postimg.cc/rpBGJhYV/Whats-App-Image-2025-01-15-at-19-48-18-45437702.jpg",
     },
     {
-      title: "Utkrishtha",
+      title: "Utkrishta",
           description: "ECS hosts Utkrishta, a vibrant fresher’s event to welcome the new ECE batch. The celebration fills with fun activities, introductions, and opportunities for students to bond with peers and seniors.New comer batch showcase their talent to crown the title of Mr.Utkrishta and Miss.Utkrishta and make memories of a lifetime.",
           image:
             "https://i.postimg.cc/CLCJ3Yys/MJ-9663.jpg",
@@ -175,7 +175,7 @@ const Annual = () => {
             "https://i.postimg.cc/rpBGJhYV/Whats-App-Image-2025-01-15-at-19-48-18-45437702.jpg",
     },
     {
-      title: "Utkrishtha",
+      title: "Utkrishta",
       description: "ECS hosts Utkrishta, a vibrant fresher’s event to welcome the new ECE batch. The celebration fills with fun activities, introductions, and opportunities for students to bond with peers and seniors.New comer batch showcase their talent to crown the title of Mr.Utkrishta and Miss.Utkrishta and make memories of a lifetime.",
       image:
         "https://i.postimg.cc/CLCJ3Yys/MJ-9663.jpg",
@@ -206,7 +206,7 @@ const Annual = () => {
             "https://i.postimg.cc/rpBGJhYV/Whats-App-Image-2025-01-15-at-19-48-18-45437702.jpg",
     },
     {
-      title: "Utkrishtha",
+      title: "Utkrishta",
       description: "ECS hosts Utkrishta, a vibrant fresher’s event to welcome the new ECE batch. The celebration fills with fun activities, introductions, and opportunities for students to bond with peers and seniors.New comer batch showcase their talent to crown the title of Mr.Utkrishta and Miss.Utkrishta and make memories of a lifetime.",
       image:
         "https://i.postimg.cc/CLCJ3Yys/MJ-9663.jpg",
@@ -237,7 +237,7 @@ const Annual = () => {
             "https://i.postimg.cc/rpBGJhYV/Whats-App-Image-2025-01-15-at-19-48-18-45437702.jpg",
     },
     {
-      title: "Utkrishtha",
+      title: "Utkrishta",
       description: "ECS hosts Utkrishta, a vibrant fresher’s event to welcome the new ECE batch. The celebration fills with fun activities, introductions, and opportunities for students to bond with peers and seniors.New comer batch showcase their talent to crown the title of Mr.Utkrishta and Miss.Utkrishta and make memories of a lifetime.",
       image:
         "https://i.postimg.cc/CLCJ3Yys/MJ-9663.jpg",

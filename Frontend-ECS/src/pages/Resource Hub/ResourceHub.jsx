@@ -670,8 +670,8 @@ const subjects = [
       "Communicative English",
       "Basic Electrical Engineering",
       "Engineering Graphics & Design",
-      "Mathematics II"]
-    ,
+      "Mathematics II",
+    ],
     ["Mathematics III",
       "Electronics Devices",
       "Analog Electronics",
