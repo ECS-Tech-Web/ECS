@@ -24,14 +24,14 @@
             style={{ originY: "top", translateX: "-50%" }}
             className="flex flex-col  p-2 rounded-lg  shadow-xl absolute top-[120%] left-[50%] w-48 overflow-hidden"
           >
-            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub}  setsemText={setsemText} handleClick={handleClick} currSem={currSem}   className={`${currSem === 1 ? 'text-[#33FCFF] underline' : ''}`}  text="1st" />
-            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 2 ? 'text-[#33FCFF] underline' : ''}`} text="2nd" />
-            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 3 ? 'text-[#33FCFF] underline' : ''}`}  text="3rd" />
-            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 4 ? 'text-[#33FCFF] underline' : ''}`} text="4th" />
-            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 5 ? 'text-[#33FCFF] underline' : ''}`} text="5th" />
-            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 6 ? 'text-[#33FCFF] underline' : ''}`} text="6th" />
-            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 7 ? 'text-[#33FCFF] underline' : ''}`} text="7th" />
-            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 8 ? 'text-[#33FCFF] underline' : ''}`} text="8th" />
+            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub}  setsemText={setsemText} handleClick={handleClick} currSem={currSem}   className={`${currSem === 1 ? 'text-[#33FCFF] underline' : ''}`}  text="1st year" />
+            {/* <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 2 ? 'text-[#33FCFF] underline' : ''}`} text="2nd" /> */}
+            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 3 ? 'text-[#33FCFF] underline' : ''}`}  text="3rd sem" />
+            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 4 ? 'text-[#33FCFF] underline' : ''}`} text="4th sem" />
+            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 5 ? 'text-[#33FCFF] underline' : ''}`} text="5th sem" />
+            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 6 ? 'text-[#33FCFF] underline' : ''}`} text="6th sem" />
+            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 7 ? 'text-[#33FCFF] underline' : ''}`} text="7th sem" />
+            <Option setOpen={setOpen} setcurrSem={setcurrSem} setCurrSub={setCurrSub} setsemText={setsemText} handleClick={handleClick} currSem={currSem} className={`${currSem === 8 ? 'text-[#33FCFF] underline' : ''}`} text="8th sem" />
           </motion.ul>
         </motion.div>
       </div>
