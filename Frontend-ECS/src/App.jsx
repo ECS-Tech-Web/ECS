@@ -5,7 +5,7 @@ import Home from './pages/home/Home.jsx';
 import AboutUs from './pages/home/AboutUs.jsx';
 import Events from './pages/events/events.jsx';
 import Members from './pages/members/Members.jsx';
-import Developers from './pages/developers/Developers.jsx';
+import Developers from './pages/developers/developers.jsx';
 import Signin from './pages/Signin.jsx';
 import Signup from './pages/Signup.jsx';
 import ResourceHub from './pages/Resource Hub/ResourceHub.jsx';
