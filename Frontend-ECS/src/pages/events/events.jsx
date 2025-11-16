@@ -269,8 +269,7 @@ const Events = () => {
           title: "Open Mic",
           description: "Open Mic under Spectrum is the perfect platform to express your creativity in your own unique way. Whether through poetry, storytelling, music, or comedy, it's your moment to shine.",
           image:
-            "https://instagram.fmaa8-1.fna.fbcdn.net/v/t39.30808-6/420032096_17895477107953783_1002736532792049271_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMDgweDEwODAuc2RyLmYzMDgwOC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fmaa8-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=Mn9BoZfyQAgQ7kNvgH0Vqb2&_nc_gid=13bececef4534dff9981aff198a2d601&edm=ALQROFkAAAAA&ccb=7-5&ig_cache_key=MzI4MTMxODE1MzE2MTcyOTY2NA%3D%3D.3-ccb7-5&oh=00_AYBBG9Cq_mMkFWxbI5ov2oC07zQTjDozX5dVND08ztsrKA&oe=678D920A&_nc_sid=fc8dfb",
-        },
+            "https://i.postimg.cc/sDycJdCH/open.jpg"},
         {
           title: "Chamber of Secrets",
           description: "Chamber of Secrets under Spectrum is an exhilarating puzzle competition where participants must decode a website-crashing mystery. Dive into a world of cryptic clues",
