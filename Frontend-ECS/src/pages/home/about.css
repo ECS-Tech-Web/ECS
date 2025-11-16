@@ -1,5 +1,5 @@
 .polygon {
-  width: 200px; 
+  width: 250px; 
   height: auto;
   clip-path: polygon(30% 5%, 94% 5%, 94% 81%, 74% 95%, 6% 95%, 6% 20%);
 }
