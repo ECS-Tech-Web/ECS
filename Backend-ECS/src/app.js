@@ -7,7 +7,7 @@ const app=express()
 
 app.use(
     cors({
-        origin:["https://ecs-rouge.vercel.app", "http://localhost:5173"],
+        origin:["https://ecs-rouge.vercel.app", "http://localhost:5173","https://ecsnits.in"],
         credentials:true
     })
 )
