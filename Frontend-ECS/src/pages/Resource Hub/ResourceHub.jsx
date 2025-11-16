@@ -126,7 +126,7 @@ const ResourceHub = () => {
   [],
   [
     {name:"pyqs",link:"https://drive.google.com/file/d/1T1cLlzn2PtYUqrINWUFM6Su2ncohI2fl/view?usp=drivesdk"}
-  ]
+  ],
  
     
   ];
