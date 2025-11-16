@@ -37,7 +37,7 @@ function Profile() {
 // };
 const handleLogout = async () => {
   try {
-    await fetch("/api/v1/users/logout", {
+    await fetch("https://ecs-gdof.onrender.com/api/v1/users/logout", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -70,7 +70,7 @@ const handleLogout = async () => {
         formData.append("avatar", file);
   
         // Send the file to the backend
-        const response = await fetch("/api/v1/users/updateAvatar", {
+        const response = await fetch("https://ecs-gdof.onrender.com/api/v1/users/updateAvatar", {
           method: "PATCH",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`, 

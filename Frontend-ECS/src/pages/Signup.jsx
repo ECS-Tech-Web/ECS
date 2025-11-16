@@ -49,7 +49,7 @@ function Signup() {
             //         password: formData.password,
             //     }),
             // });
-            const res = await fetch("/api/v1/users/register", {
+            const res = await fetch("https://ecs-gdof.onrender.com/api/v1/users/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
