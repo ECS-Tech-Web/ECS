@@ -848,7 +848,7 @@ const subjects = [
               </defs>
             </svg>
             </div>
-            <div className="notes-option"  ><svg className='optionButton' onClick={() => {
+            {/* <div className="notes-option"  ><svg className='optionButton' onClick={() => {
               setdisItem(true);
             }} width="301" height="86" viewBox="0 0 301 86" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g filter="url(#filter0_d_367_879)">
@@ -935,7 +935,7 @@ const subjects = [
                 </clipPath>
               </defs>
             </svg>
-            </div>
+            </div> */}
 
           </div>
         </div>
