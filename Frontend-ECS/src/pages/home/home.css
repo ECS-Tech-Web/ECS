@@ -19,6 +19,63 @@
   /* Adding a slight blur to make glitch softer */
   filter: blur(0.5px);
 }
+.light-ray1 {
+  position: fixed;
+  top: 20%;                        /* vertical placement */
+  left: 80%;                       /* horizontal center */
+  transform: translateX(-50%) rotate(-24deg); 
+  /*          ↑ center it    ↑ tilt it (change angle here) */
+
+  width: 1150px;
+  height: 20px;
+
+  background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(3, 231, 247, 0.9)
+  );
+
+  filter: blur(12px);              /* glow */
+  opacity: 0;
+
+  animation: fadeRay 3s ease-in-out forwards;
+  animation-delay: 2s;
+}
+.light-ray2 {
+  position: fixed;
+  top: 20%;                        /* vertical placement */
+  left: 20%;                       /* horizontal center */
+  transform: translateX(-50%) rotate(24deg); 
+  /*          ↑ center it    ↑ tilt it (change angle here) */
+
+  width: 1150px;
+  height: 20px;
+
+  background: linear-gradient(
+      90deg,
+
+      rgba(3, 231, 247, 0.9),
+      transparent
+  );
+
+  filter: blur(12px);              /* glow */
+  opacity: 0;
+
+  animation: fadeRay 3s ease-in-out forwards;
+  animation-delay: 2s;
+}
+
+@keyframes fadeRay {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .glitch::before {
   left: 3px;
