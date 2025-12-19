@@ -1,0 +1,430 @@
+[33mcommit e3c63cb92aca84bb39d227608b0891d1b7e1304d[m
+Author: piyush186sharma <piyushsharmaspsghy@gmail.com>
+Date:   Wed Nov 19 03:29:21 2025 +0530
+
+    rays
+
+[1mdiff --git a/Frontend-ECS/package-lock.json b/Frontend-ECS/package-lock.json[m
+[1mindex 1df38d4..e073a2e 100644[m
+[1m--- a/Frontend-ECS/package-lock.json[m
+[1m+++ b/Frontend-ECS/package-lock.json[m
+[36m@@ -11,11 +11,13 @@[m
+         "@splinetool/react-spline": "^4.0.0",[m
+         "@tsparticles/react": "^3.0.0",[m
+         "@tsparticles/slim": "^3.7.1",[m
+[32m+[m[32m        "ai": "^5.0.93",[m
+         "aos": "^2.3.4",[m
+         "classnames": "^2.5.1",[m
+         "framer-motion": "^11.17.0",[m
+         "lucide-react": "^0.542.0",[m
+         "mdb-react-ui-kit": "^9.0.0",[m
+[32m+[m[32m        "open": "^11.0.0",[m
+         "react": "^18.3.1",[m
+         "react-dom": "^18.3.1",[m
+         "react-icons": "^5.5.0",[m
+[36m@@ -40,6 +42,52 @@[m
+         "vite": "^5.4.19"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/@ai-sdk/gateway": {[m
+[32m+[m[32m      "version": "2.0.9",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@ai-sdk/gateway/-/gateway-2.0.9.tgz",[m
+[32m+[m[32m      "integrity": "sha512-E6x4h5CPPPJ0za1r5HsLtHbeI+Tp3H+YFtcH8G3dSSPFE6w+PZINzB4NxLZmg1QqSeA5HTP3ZEzzsohp0o2GEw==",[m
+[32m+[m[32m      "license": "Apache-2.0",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "@ai-sdk/provider": "2.0.0",[m
+[32m+[m[32m        "@ai-sdk/provider-utils": "3.0.17",[m
+[32m+[m[32m        "@vercel/oidc": "3.0.3"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=18"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "peerDependencies": {[m
+[32m+[m[32m        "zod": "^3.25.76 || ^4.1.8"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@ai-sdk/provider": {[m
+[32m+[m[32m      "version": "2.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@ai-sdk/provider/-/provider-2.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-6o7Y2SeO9vFKB8lArHXehNuusnpddKPk7xqL7T2/b+OvXMRIXUO1rR4wcv1hAFUAT9avGZshty3Wlua/XA7TvA==",[m
+[32m+[m[32m      "license": "Apache-2.0",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "json-schema": "^0.4.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=18"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@ai-sdk/provider-utils": {[m
+[32m+[m[32m      "version": "3.0.17",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@ai-sdk/provider-utils/-/provider-utils-3.0.17.tgz",[m
+[32m+[m[32m      "integrity": "sha512-TR3Gs4I3Tym4Ll+EPdzRdvo/rc8Js6c4nVhFLuvGLX/Y4V9ZcQMa/HTiYsHEgmYrf1zVi6Q145UEZUfleOwOjw==",[m
+[32m+[m[32m      "license": "Apache-2.0",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "@ai-sdk/provider": "2.0.0",[m
+[32m+[m[32m        "@standard-schema/spec": "^1.0.0",[m
+[32m+[m[32m        "eventsource-parser": "^3.0.6"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=18"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "peerDependencies": {[m
+[32m+[m[32m        "zod": "^3.25.76 || ^4.1.8"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/@alloc/quick-lru": {[m
+       "version": "5.2.0",[m
+       "resolved": "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz",[m
+[36m@@ -2422,6 +2470,15 @@[m
+         "@octokit/openapi-types": "^22.2.0"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/@opentelemetry/api": {[m
+[32m+[m[32m      "version": "1.9.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@opentelemetry/api/-/api-1.9.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg==",[m
+[32m+[m[32m      "license": "Apache-2.0",[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=8.0.0"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/@parcel/watcher": {[m
+       "version": "2.4.1",[m
+       "resolved": "https://registry.npmjs.org/@parcel/watcher/-/watcher-2.4.1.tgz",[m
+[36m@@ -3005,6 +3062,12 @@[m
+         "semver-compare": "^1.0.0"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/@standard-schema/spec": {[m
+[32m+[m[32m      "version": "1.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@standard-schema/spec/-/spec-1.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==",[m
+[32m+[m[32m      "license": "MIT"[m
+[32m+[m[32m    },[m
+     "node_modules/@swc/core": {[m
+       "version": "1.7.42",[m
+       "resolved": "https://registry.npmjs.org/@swc/core/-/core-1.7.42.tgz",[m
+[36m@@ -3731,6 +3794,15 @@[m
+         "@types/react": "*"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/@vercel/oidc": {[m
+[32m+[m[32m      "version": "3.0.3",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@vercel/oidc/-/oidc-3.0.3.tgz",[m
+[32m+[m[32m      "integrity": "sha512-yNEQvPcVrK9sIe637+I0jD6leluPxzwJKx/Haw6F4H77CdDsszUn5V3o96LPziXkSNE2B83+Z3mjqGKBK/R6Gg==",[m
+[32m+[m[32m      "license": "Apache-2.0",[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">= 20"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/@vitejs/plugin-legacy": {[m
+       "version": "5.4.3",[m
+       "resolved": "https://registry.npmjs.org/@vitejs/plugin-legacy/-/plugin-legacy-5.4.3.tgz",[m
+[36m@@ -3810,6 +3882,24 @@[m
+         "acorn": "^6.0.0 || ^7.0.0 || ^8.0.0"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/ai": {[m
+[32m+[m[32m      "version": "5.0.93",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/ai/-/ai-5.0.93.tgz",[m
+[32m+[m[32m      "integrity": "sha512-9eGcu+1PJgPg4pRNV4L7tLjRR3wdJC9CXQoNMvtqvYNOLZHFCzjHtVIOr2SIkoJJeu2+sOy3hyiSuTmy2MA40g==",[m
+[32m+[m[32m      "license": "Apache-2.0",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "@ai-sdk/gateway": "2.0.9",[m
+[32m+[m[32m        "@ai-sdk/provider": "2.0.0",[m
+[32m+[m[32m        "@ai-sdk/provider-utils": "3.0.17",[m
+[32m+[m[32m        "@opentelemetry/api": "1.9.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=18"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "peerDependencies": {[m
+[32m+[m[32m        "zod": "^3.25.76 || ^4.1.8"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/ajv": {[m
+       "version": "6.12.6",[m
+       "resolved": "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz",[m
+[36m@@ -4268,6 +4358,21 @@[m
+       "integrity": "sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==",[m
+       "license": "MIT"[m
+     },[m
+[32m+[m[32m    "node_modules/bundle-name": {[m
+[32m+[m[32m      "version": "4.1.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/bundle-name/-/bundle-name-4.1.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-tjwM5exMg6BGRI+kNmTntNsvdZS1X8BFYS6tnJ2hdH0kVxM6/eVZ2xy+FqStSWvYmtfFMDLIxurorHwDKfDz5Q==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "run-applescript": "^7.0.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=18"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/call-bind": {[m
+       "version": "1.0.7",[m
+       "resolved": "https://registry.npmjs.org/call-bind/-/call-bind-1.0.7.tgz",[m
+[36m@@ -4673,6 +4778,34 @@[m
+       "dev": true,[m
+       "license": "MIT"[m
+     },[m
+[32m+[m[32m    "node_modules/default-browser": {[m
+[32m+[m[32m      "version": "5.4.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/default-browser/-/default-browser-5.4.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-XDuvSq38Hr1MdN47EDvYtx3U0MTqpCEn+F6ft8z2vYDzMrvQhVp0ui9oQdqW3MvK3vqUETglt1tVGgjLuJ5izg==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "bundle-name": "^4.1.0",[m
+[32m+[m[32m        "default-browser-id": "^5.0.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=18"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/default-browser-id": {[m
+[32m+[m[32m      "version": "5.0.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/default-browser-id/-/default-browser-id-5.0.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-x1VCxdX4t+8wVfd1so/9w+vQ4vx7lKd2Qp5tDRutErwmR85OgmfX7RlLRMWafRMY7hbEiXIbudNrjOAPa/hL8Q==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=18"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/define-data-property": {[m
+       "version": "1.1.4",[m
+       "resolved": "https://registry.npmjs.org/define-data-property/-/define-data-property-1.1.4.tgz",[m
+[36m@@ -4691,6 +4824,18 @@[m
+         "url": "https://github.com/sponsors/ljharb"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/define-lazy-prop": {[m
+[32m+[m[32m      "version": "3.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/define-lazy-prop/-/define-lazy-prop-3.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=12"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/define-properties": {[m
+       "version": "1.2.1",[m
+       "resolved": "https://registry.npmjs.org/define-properties/-/define-properties-1.2.1.tgz",[m
+[36m@@ -5349,6 +5494,15 @@[m
+         "node": ">=0.10.0"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/eventsource-parser": {[m
+[32m+[m[32m      "version": "3.0.6",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/eventsource-parser/-/eventsource-parser-3.0.6.tgz",[m
+[32m+[m[32m      "integrity": "sha512-Vo1ab+QXPzZ4tCa8SwIHJFaSzy4R6SHf7BY79rFBDf0idraZWAkYrDjDj8uWaSm3S2TK+hJ7/t1CEmZ7jXw+pg==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=18.0.0"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/fast-deep-equal": {[m
+       "version": "3.1.3",[m
+       "resolved": "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz",[m
+[36m@@ -6174,6 +6328,21 @@[m
+         "url": "https://github.com/sponsors/ljharb"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/is-docker": {[m
+[32m+[m[32m      "version": "3.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/is-docker/-/is-docker-3.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-eljcgEDlEns/7AXFosB5K/2nCM4P7FQPkGc/DWLy5rmFEWvZayGrik1d9/QIY5nJ4f9YsVvBkA6kJpHn9rISdQ==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "bin": {[m
+[32m+[m[32m        "is-docker": "cli.js"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": "^12.20.0 || ^14.13.1 || >=16.0.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/is-extglob": {[m
+       "version": "2.1.1",[m
+       "resolved": "https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz",[m
+[36m@@ -6234,6 +6403,36 @@[m
+         "node": ">=0.10.0"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/is-in-ssh": {[m
+[32m+[m[32m      "version": "1.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/is-in-ssh/-/is-in-ssh-1.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-jYa6Q9rH90kR1vKB6NM7qqd1mge3Fx4Dhw5TVlK1MUBqhEOuCagrEHMevNuCcbECmXZ0ThXkRm+Ymr51HwEPAw==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=20"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/is-inside-container": {[m
+[32m+[m[32m      "version": "1.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/is-inside-container/-/is-inside-container-1.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-KIYLCCJghfHZxqjYBE7rEy0OBuTd5xCHS7tHVgvCLkx7StIoaxwNW3hCALgEUjFfeRk+MG/Qxmp/vtETEF3tRA==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "is-docker": "^3.0.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "bin": {[m
+[32m+[m[32m        "is-inside-container": "cli.js"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=14.16"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/is-map": {[m
+       "version": "2.0.3",[m
+       "resolved": "https://registry.npmjs.org/is-map/-/is-map-2.0.3.tgz",[m
+[36m@@ -6428,6 +6627,21 @@[m
+       "integrity": "sha512-sNxgpk9793nzSs7bA6JQJGeIuRBQhAaNGG77kzYQgMkrID+lS6SlK07K5LaptscDlSaIgH+GPFzf+d75FVxozA==",[m
+       "license": "MIT"[m
+     },[m
+[32m+[m[32m    "node_modules/is-wsl": {[m
+[32m+[m[32m      "version": "3.1.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/is-wsl/-/is-wsl-3.1.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-UcVfVfaK4Sc4m7X3dUSoHoozQGBEFeDC+zVo06t98xe8CzHSZZBekNXH+tu0NalHolcJ/QAGqS46Hef7QXBIMw==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "is-inside-container": "^1.0.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=16"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/isarray": {[m
+       "version": "2.0.5",[m
+       "resolved": "https://registry.npmjs.org/isarray/-/isarray-2.0.5.tgz",[m
+[36m@@ -6541,6 +6755,12 @@[m
+       "dev": true,[m
+       "license": "MIT"[m
+     },[m
+[32m+[m[32m    "node_modules/json-schema": {[m
+[32m+[m[32m      "version": "0.4.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/json-schema/-/json-schema-0.4.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-es94M3nTIfsEPisRafak+HDLfHXnKBhV3vU5eqPcS3flIWqcxJWgXHXiey3YrpaNsanY5ei1VoYEbOzijuq9BA==",[m
+[32m+[m[32m      "license": "(AFL-2.1 OR BSD-3-Clause)"[m
+[32m+[m[32m    },[m
+     "node_modules/json-schema-traverse": {[m
+       "version": "0.4.1",[m
+       "resolved": "https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz",[m
+[36m@@ -7183,6 +7403,26 @@[m
+         "wrappy": "1"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/open": {[m
+[32m+[m[32m      "version": "11.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/open/-/open-11.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-smsWv2LzFjP03xmvFoJ331ss6h+jixfA4UUV/Bsiyuu4YJPfN+FIQGOIiv4w9/+MoHkfkJ22UIaQWRVFRfH6Vw==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "default-browser": "^5.4.0",[m
+[32m+[m[32m        "define-lazy-prop": "^3.0.0",[m
+[32m+[m[32m        "is-in-ssh": "^1.0.0",[m
+[32m+[m[32m        "is-inside-container": "^1.0.0",[m
+[32m+[m[32m        "powershell-utils": "^0.1.0",[m
+[32m+[m[32m        "wsl-utils": "^0.3.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=20"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/optionator": {[m
+       "version": "0.9.4",[m
+       "resolved": "https://registry.npmjs.org/optionator/-/optionator-0.9.4.tgz",[m
+[36m@@ -7571,6 +7811,18 @@[m
+       "dev": true,[m
+       "license": "MIT"[m
+     },[m
+[32m+[m[32m    "node_modules/powershell-utils": {[m
+[32m+[m[32m      "version": "0.1.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/powershell-utils/-/powershell-utils-0.1.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-dM0jVuXJPsDN6DvRpea484tCUaMiXWjuCn++HGTqUWzGDjv5tZkEZldAJ/UMlqRYGFrD/etByo4/xOuC/snX2A==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=20"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/prelude-ls": {[m
+       "version": "1.2.1",[m
+       "resolved": "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz",[m
+[36m@@ -7978,6 +8230,18 @@[m
+         "fsevents": "~2.3.2"[m
+       }[m
+     },[m
+[32m+[m[32m    "node_modules/run-applescript": {[m
+[32m+[m[32m      "version": "7.1.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/run-applescript/-/run-applescript-7.1.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-DPe5pVFaAsinSaV6QjQ6gdiedWDcRCbUuiQfQa2wmWV7+xC9bGulGI8+TdRmoFkAPaBXk8CrAbnlY2ISniJ47Q==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=18"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/run-parallel": {[m
+       "version": "1.2.0",[m
+       "resolved": "https://registry.npmjs.org/run-parallel/-/run-parallel-1.2.0.tgz",[m
+[36m@@ -9292,6 +9556,22 @@[m
+       "integrity": "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==",[m
+       "license": "ISC"[m
+     },[m
+[32m+[m[32m    "node_modules/wsl-utils": {[m
+[32m+[m[32m      "version": "0.3.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/wsl-utils/-/wsl-utils-0.3.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-3sFIGLiaDP7rTO4xh3g+b3AzhYDIUGGywE/WsmqzJWDxus5aJXVnPTNC/6L+r2WzrwXqVOdD262OaO+cEyPMSQ==",[m
+[32m+[m[32m      "license": "MIT",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "is-wsl": "^3.1.0",[m
+[32m+[m[32m        "powershell-utils": "^0.1.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=20"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "node_modules/yallist": {[m
+       "version": "3.1.1",[m
+       "resolved": "https://registry.npmjs.org/yallist/-/yallist-3.1.1.tgz",[m
+[36m@@ -9323,6 +9603,16 @@[m
+       "funding": {[m
+         "url": "https://github.com/sponsors/sindresorhus"[m
+       }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/zod": {[m
+[32m+[m[32m      "version": "4.1.12",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/zod/-/zod-4.1.12.tgz",[m
+[32m+[m[32m      "integrity": "sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHT

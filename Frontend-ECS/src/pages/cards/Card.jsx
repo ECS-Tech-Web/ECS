@@ -2,19 +2,15 @@ import React, { useEffect } from "react";
 import "./card.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 export default function Card({ title, description, imageUrl }) {
-
   useEffect(() => {
     AOS.init({
-      duration: 1000, 
-      once: true,    
+      duration: 1000,
+      once: true,
     });
   }, []);
-
-  if (title === "Sibajit Mazumder") {
-    console.log("hi");
-  }
 
   return (
     <div
@@ -22,26 +18,34 @@ export default function Card({ title, description, imageUrl }) {
       style={{
         backgroundImage: `url('https://i.postimg.cc/ZnmFTwD6/Card.png')`,
       }}
-      data-aos="flip-left" 
+      data-aos="flip-left"
     >
-      {/* Image Container */}
-      <div className="image-container relative w-full h-full flex justify-center items-center">
+      {/* Image */}
+      <div className="relative w-full h-full flex justify-center items-center">
         <img
-          src={imageUrl} // Member's image
+          src={imageUrl}
           alt={title}
-          className="image h-full w-full object-contain sm:transition-transform sm:duration-200 sm:ease-in-out sm:transform group-hover:scale-110"
+          className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
         />
       </div>
 
-      {/* Static Text Container */}
+      {/* Glass Social Icons (Hover) */}
+      <div className="glass-social absolute inset-0 flex items-center justify-center">
+        
+        <a href="#" target="_blank"><FaFacebook /></a>
+        <a href="#" target="_blank"><FaInstagram /></a>
+        <a href="#" target="_blank"><FaLinkedin /></a>
+      </div>
+
+      {/* Text */}
       <div
-        className="text-container absolute bottom-2 left-0 w-full h-[25%] bg-cover bg-center flex flex-col items-center justify-center"
+        className="absolute bottom-2 left-0 w-full h-[25%] bg-cover bg-center flex flex-col items-center justify-center"
         style={{
           backgroundImage: `url('https://i.postimg.cc/G3PxM1HK/Vector.png')`,
         }}
       >
-        <h2 className="text-lg font-bold text-white opacity-100">{title}</h2>
-        <p className="text-sm text-gray-200 opacity-100">{description}</p>
+        <h2 className="text-lg font-bold text-white">{title}</h2>
+        <p className="text-sm text-gray-200">{description}</p>
       </div>
     </div>
   );

@@ -3,7 +3,6 @@ import Gallery from './Gallery';
 import Message from './Message';
 import AboutUs from './AboutUs';
 import Annual from './Annual';
-import Chat from './chat.jsx';
 import ParticlesComponent from '../Particle/Particle';
 import Typewriter from "typewriter-effect";
 import "./home.css";
@@ -41,7 +40,6 @@ export default function Home() {
 
       </div>
       <div className="pc:h-[90vh] mobile:h-[90vh]" ></div>
-       <Chat/>
       <Message />
       <AboutUs />
       <Annual />
