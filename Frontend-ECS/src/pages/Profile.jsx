@@ -37,22 +37,28 @@ function Profile() {
 // };
 const handleLogout = async () => {
   try {
-    await fetch("https://ecs-gdof.onrender.com/api/v1/users/logout", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://ecs-gdof.onrender.com/api/v1/users/logout",
+      {
+        method: "POST",
+        credentials: "include", // 🔥 REQUIRED for cookies
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Logout failed");
+    }
   } catch (error) {
-    console.error("Logout API failed, but clearing session:", error);
+    console.error("Logout API failed:", error);
   } finally {
+    // frontend cleanup
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUser(null);
     alert("Logged out successfully");
   }
 };
+
 
 
   const updateAvatar = async () => {

@@ -1,35 +1,28 @@
 import React from "react";
 import Card from "../cards/Card";
 import "./members.css";
-import cardsData from "./membersData";
+import cardsData from "./membersData"; 
 
 export default function Members() {
+  const rows = [];
   const cardsPerRow = 3;
 
-  // Split members into rows of 3
-  const rows = [];
   for (let i = 0; i < cardsData.length; i += cardsPerRow) {
     rows.push(cardsData.slice(i, i + cardsPerRow));
   }
 
   return (
-    <div className="main mx-auto w-full max-w-7xl">
+    <div className="main mx-auto w-full max-w-7xl space-y-10 ">
       <div className="members p-5 text-center">
-        {/* Title */}
         <div className="membersTitle flex justify-center items-center pt-10">
-          <img
-            src="https://i.postimg.cc/nzSYcp3Z/members.png"
-            alt="Members"
-            className="max-w-full h-auto"
-          />
+          <img src="https://i.postimg.cc/nzSYcp3Z/members.png" alt="Members" />
         </div>
 
-        {/* Members Cards */}
-        <div className="space-y-12 mt-10">
+        <div className="space-y-6">
           {rows.map((row, rowIndex) => (
             <div
               key={rowIndex}
-              className="row flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-x-[18vw] p-4"
+              className="row flex flex-col gap-10 sm:flex-row mt-[50px]  p-4 h-auto w-full items-center justify-center gap-x-[18vw]"
             >
               {row.map((card, cardIndex) => (
                 <Card
@@ -37,9 +30,9 @@ export default function Members() {
                   title={card.title}
                   description={card.description}
                   imageUrl={card.imageUrl}
-                  instagram={card.instagram}
-                  facebook={card.facebook}
-                  linkedin={card.linkedin}
+                  instagram={card.instagram}  
+                  facebook={card.facebook}   
+                  linkedin={card.linkedin}    
                 />
               ))}
             </div>

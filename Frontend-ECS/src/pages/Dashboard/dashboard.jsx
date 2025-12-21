@@ -49,31 +49,29 @@ const Dashboard = () => {
     };
 
     const handleLogout = async () => {
-    try {
-        const response = await fetch("https://ecs-gdof.onrender.com/api/v1/users/logout", {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`, 
-                "Content-Type": "application/json",
-            },
-        });
+  try {
+    const response = await fetch(
+      "https://ecs-gdof.onrender.com/api/v1/users/logout",
+      {
+        method: "POST",
+        credentials: "include", 
+      }
+    );
 
-        if (!response.ok) {
-            throw new Error("Failed to log out");
-        }
-
-        // Clear localStorage and reset state
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        setUser(null);
-
-        alert("Logged out successfully!");
-        window.location.href = "/sign-in"; // Redirect to sign-in page
-    } catch (error) {
-        console.error("Error logging out:", error);
-        alert("Failed to log out. Please try again.");
+    if (!response.ok) {
+      throw new Error("Logout failed");
     }
+  } catch (error) {
+    console.error("Logout API failed:", error);
+  } finally {
+    // frontend cleanup
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setUser(null);
+    alert("Logged out successfully");
+  }
 };
+
 
 
     React.useEffect(() => {
