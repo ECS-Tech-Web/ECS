@@ -19,6 +19,7 @@ import Spectrum from './pages/Gallerydedicated/Spectrum.jsx';
 import Utkrishta from './pages/Gallerydedicated/Utkrishta.jsx';
 import More from './pages/Gallerydedicated/More.jsx';
 import FAQ from './components/FAQs.jsx';
+import EventRegister from './pages/eventregister.jsx';
 
 // import PrivateRoute from './components/PrivateRoute.jsx';
 
@@ -58,7 +59,7 @@ function App() {
         <Route path='/utkrishtha' element={<Utkrishta/>}/>
         <Route path='/more' element={<More/>}/>
         <Route path='/faq' element={<FAQ/>}/>
-
+        <Route path="/register/:eventName" element={<EventRegister />} />
 
        
       </Routes>
