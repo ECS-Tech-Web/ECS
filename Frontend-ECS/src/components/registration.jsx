@@ -32,7 +32,7 @@ const modules = [
   { name: "Tug Of War", isTeam: true, maxMembers: 6 },
 ];
 
-const API_URL = "http://localhost:7000/api/v1/registrations";
+const API_URL = "https://ecs-gdof.onrender.com/api/v1/registrations";
 
 function EventRegistrationForm() {
   const [selectedModule, setSelectedModule] = useState("");
