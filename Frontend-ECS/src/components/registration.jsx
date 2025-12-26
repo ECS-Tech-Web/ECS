@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const modules = [
   { name: "Inauguration & Open mic", isTeam: false },
 
-  { name: "Minamalist", isTeam: false },
+  { name: "Minimalist", isTeam: false },
   { name: "Poesis", isTeam: false },
   { name: "Moments", isTeam: false },
   { name: "Memecraft", isTeam: false },
@@ -22,17 +22,17 @@ const modules = [
   { name: "Eniac", isTeam: true, maxMembers: 2 },
   { name: "Byte the Code", isTeam: true, maxMembers: 2 },
   { name: "Smartdroid", isTeam: true, maxMembers: 4 },
-  {name:"Chess",isTeam:false},
-  {name:"Cricket",isTeam:false},
-  {name:"Badminton",isTeam:true,maxMembers:2},
-  {name:"TableTenis",isTeam:false},
-  {name:"Futsal",isTeam:false},
-  {name:"RelayRace",isTeam:true,maxMembers:3},
-  {name:"TugOfWar",isTeam:true,maxMembers:6}
+
+  { name: "Chess", isTeam: false },
+  { name: "Cricket", isTeam: false },
+  { name: "Badminton", isTeam: true, maxMembers: 2 },
+  { name: "Table Tennis", isTeam: false },
+  { name: "Futsal", isTeam: false },
+  { name: "Relay Race", isTeam: true, maxMembers: 3 },
+  { name: "Tug Of War", isTeam: true, maxMembers: 6 },
 ];
 
-
-const API_URL = "https://ecs-gdof.onrender.com/api/v1/registrations";
+const API_URL = "http://localhost:7000/api/v1/registrations";
 
 function EventRegistrationForm() {
   const [selectedModule, setSelectedModule] = useState("");
@@ -50,8 +50,7 @@ function EventRegistrationForm() {
 
       const res = await fetch(API_URL, {
         method: "POST",
-        credentials: "include", // 🔥 SEND JWT COOKIE
-        body: formData,
+        body: formData, // ✅ NO credentials, NO JWT
       });
 
       const data = await res.json();
@@ -88,19 +87,24 @@ function EventRegistrationForm() {
         {/* BASIC DETAILS */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <input name="name" placeholder="Full Name" className="input" required />
+
           <input
             name="scholarId"
             placeholder="Scholar ID"
             className="input"
             required
           />
+
           <input
+            type="tel"
             name="mobile"
             placeholder="Mobile Number"
             className="input"
             required
           />
+
           <input
+            type="email"
             name="email"
             placeholder="Institute Email"
             className="input"
@@ -145,7 +149,7 @@ function EventRegistrationForm() {
         {moduleData?.isTeam && (
           <div className="space-y-4">
             <h3 className="text-blue-300 font-semibold text-lg">
-              Team Details ({moduleData.maxMembers} Members)
+              Team Details (Max {moduleData.maxMembers})
             </h3>
 
             <input
@@ -156,11 +160,11 @@ function EventRegistrationForm() {
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[...Array(moduleData.maxMembers)].map((_, i) => (
+              {[...Array(moduleData.maxMembers - 1)].map((_, i) => (
                 <input
                   key={i}
                   name="participants[]"
-                  placeholder={`Participant ${i + 1}`}
+                  placeholder={`Participant ${i + 2}`}
                   className="input"
                   required
                 />
@@ -188,7 +192,7 @@ function EventRegistrationForm() {
 
         <button
           type="submit"
-          disabled={loading}
+          disabled={loading || !selectedModule}
           className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 py-3 rounded-xl font-bold text-lg disabled:opacity-50"
         >
           {loading ? "Submitting..." : "Submit Registration"}

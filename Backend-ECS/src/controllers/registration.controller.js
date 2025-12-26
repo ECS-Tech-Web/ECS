@@ -4,23 +4,45 @@ export const registerEvent = async (req, res) => {
   try {
     const { module } = req.body;
 
-    // 1️⃣ Select correct collection
-    const Model = moduleModelMap[module];
-    if (!Model) {
-      return res.status(400).json({ message: "Invalid module selected" });
+    /* ================= VALIDATION ================= */
+
+    if (!module) {
+      return res.status(400).json({
+        success: false,
+        message: "Module is required",
+      });
     }
 
-    // 2️⃣ Save data
-    const registration = new Model({
-      ...req.body,
-      user: req.user?._id,
-      paymentScreenshot: req.file?.path || null,
+    // 1️⃣ Select correct collection based on module
+    const Model = moduleModelMap[module];
+
+    if (!Model) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid module selected",
+      });
+    }
+
+    /* ================= SAVE REGISTRATION ================= */
+
+    const registration = await Model.create({
+      ...req.body,               // form fields
+      paymentScreenshot: req.file ? req.file.filename : null, // multer file
+      // ❌ NO user field
     });
 
-    await registration.save();
+    return res.status(201).json({
+      success: true,
+      message: "Registration successful",
+      registration,
+    });
 
-    res.status(201).json({ message: "Registration successful" });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error("Registration Error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: error.message || "Internal Server Error",
+    });
   }
 };

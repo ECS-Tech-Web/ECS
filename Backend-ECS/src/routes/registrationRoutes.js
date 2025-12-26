@@ -1,22 +1,21 @@
 import express from "express";
 import multer from "multer";
-import { verifyJWT } from "../Middlewares/auth.middlewares.js";
 import { getRegistrationModel } from "../models/registration.model.js";
 
 const router = express.Router();
 
 const storage = multer.diskStorage({
   destination: "uploads/",
-  filename: (req, file, cb) =>
-    cb(null, `${Date.now()}-${file.originalname}`),
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  },
 });
 
 const upload = multer({ storage });
 
 router.post(
   "/",
-  verifyJWT,
-  upload.single("paymentScreenshot"),
+  upload.single("paymentScreenshot"), 
   async (req, res) => {
     try {
       const { module } = req.body;
@@ -28,24 +27,25 @@ router.post(
         });
       }
 
-      // 🔥 get model based on module
+      // 🔥 Get model dynamically based on module
       const Registration = getRegistrationModel(module);
 
       const registration = await Registration.create({
-        user: req.user._id,
         ...req.body,
-        paymentScreenshot: req.file?.filename || "",
+        paymentScreenshot: req.file ? req.file.filename : null,
       });
 
-      res.status(201).json({
+      return res.status(201).json({
         success: true,
+        message: "Registration successful",
         registration,
       });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({
+      console.error("Registration Error:", error);
+
+      return res.status(500).json({
         success: false,
-        message: error.message,
+        message: error.message || "Internal Server Error",
       });
     }
   }

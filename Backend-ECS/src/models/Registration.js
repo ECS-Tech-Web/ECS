@@ -2,22 +2,65 @@ import mongoose from "mongoose";
 
 const registrationSchema = new mongoose.Schema(
   {
+    // ❌ NO AUTH → user must be optional
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+      required: false,
     },
 
-    name: { type: String, required: true },
-    scholarId: { type: String, required: true },
-    email: { type: String, required: true },
-    mobile: { type: String, required: true },
-    branch: { type: String, required: true },
-    module: { type: String, required: true },
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
 
-    teamName: String,
-    participants: [String],
+    scholarId: {
+      type: String,
+      required: true,
+      trim: true,
+    },
 
-    paymentScreenshot: String,
+    email: {
+      type: String,
+      required: true,
+      lowercase: true,
+      trim: true,
+    },
+
+    mobile: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    branch: {
+      type: String,
+      required: true,
+      enum: ["CSE", "ECE", "ME", "EE", "CE", "EIE"],
+    },
+
+    module: {
+      type: String,
+      required: true,
+      index: true,
+    },
+
+    // TEAM FIELDS (optional)
+    teamName: {
+      type: String,
+      trim: true,
+    },
+
+    participants: {
+      type: [String],
+      default: [],
+    },
+
+    paymentScreenshot: {
+      type: String,
+      default: null,
+    },
   },
   { timestamps: true }
 );
