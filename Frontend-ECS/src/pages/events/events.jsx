@@ -155,7 +155,7 @@ const Events = () => {
           description: "The chess competition under the Spectrum FIT domain fosters critical thinking, strategy, and mental agility. It serves as a platform for participants to showcase their intellectual prowess and decision-making skills",
           image:
             "https://i.postimg.cc/Y9SzsKqH/Whats-App-Image-2025-01-14-at-13-45-59-387cf123.jpg",
-          link:"https://docs.google.com/forms/d/e/1FAIpQLSdVd4FTMyXtiQwdjVGN9woDhDo1xNbEfwW104tExrz2qUWtqA/alreadyresponded"
+          link:"/register/chess"
         },
         {
           title: "Table Tennis",
