@@ -1,21 +1,27 @@
 import express from "express";
 import multer from "multer";
 import { getRegistrationModel } from "../models/registration.model.js";
+import { uploadOnCloudinary } from "../utils/cloudiary.js";
 
 const router = express.Router();
 
-const storage = multer.diskStorage({
-  destination: "uploads/",
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
+/* ================= MULTER (MEMORY STORAGE) ================= */
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+  fileFilter: (req, file, cb) => {
+    const allowed = ["image/jpeg", "image/png", "image/jpg"];
+    if (allowed.includes(file.mimetype)) cb(null, true);
+    else cb(new Error("Only JPG, JPEG, PNG allowed"), false);
   },
 });
 
-const upload = multer({ storage });
+/* ================= ROUTE ================= */
 
 router.post(
   "/",
-  upload.single("paymentScreenshot"), 
+  upload.single("paymentScreenshot"),
   async (req, res) => {
     try {
       const { module } = req.body;
@@ -30,9 +36,31 @@ router.post(
       // 🔥 Get model dynamically based on module
       const Registration = getRegistrationModel(module);
 
+      /* ================= CLOUDINARY UPLOAD ================= */
+
+      let paymentScreenshot = null;
+
+      if (req.file) {
+        const result = await uploadOnCloudinary(req.file.buffer);
+
+        if (!result) {
+          return res.status(500).json({
+            success: false,
+            message: "Failed to upload payment screenshot",
+          });
+        }
+
+        paymentScreenshot = {
+          url: result.secure_url,
+          publicId: result.public_id,
+        };
+      }
+
+      /* ================= SAVE DATA ================= */
+
       const registration = await Registration.create({
         ...req.body,
-        paymentScreenshot: req.file ? req.file.filename : null,
+        paymentScreenshot,
       });
 
       return res.status(201).json({

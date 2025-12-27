@@ -1,4 +1,5 @@
 import moduleModelMap from "../utils/moduleModelMap.js";
+import { uploadOnCloudinary } from "../utils/cloudiary.js";
 
 export const registerEvent = async (req, res) => {
   try {
@@ -23,12 +24,31 @@ export const registerEvent = async (req, res) => {
       });
     }
 
+    /* ================= CLOUDINARY UPLOAD ================= */
+
+    let paymentScreenshot = null;
+
+    if (req.file) {
+      const result = await uploadOnCloudinary(req.file.buffer);
+
+      if (!result) {
+        return res.status(500).json({
+          success: false,
+          message: "Failed to upload payment screenshot",
+        });
+      }
+
+      paymentScreenshot = {
+        url: result.secure_url,
+        publicId: result.public_id,
+      };
+    }
+
     /* ================= SAVE REGISTRATION ================= */
 
     const registration = await Model.create({
-      ...req.body,               // form fields
-      paymentScreenshot: req.file ? req.file.filename : null, // multer file
-      // ❌ NO user field
+      ...req.body,
+      paymentScreenshot, // ✅ Cloudinary data
     });
 
     return res.status(201).json({

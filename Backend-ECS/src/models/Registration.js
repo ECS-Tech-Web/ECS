@@ -57,9 +57,16 @@ const registrationSchema = new mongoose.Schema(
       default: [],
     },
 
+    // ✅ FIXED: Cloudinary-friendly
     paymentScreenshot: {
-      type: String,
-      default: null,
+      url: {
+        type: String,
+        default: null,
+      },
+      publicId: {
+        type: String,
+        default: null,
+      },
     },
   },
   { timestamps: true }
