@@ -162,33 +162,42 @@ const Events = () => {
           description: "Table tennis under Spectrum FIT highlights agility, reflexes, and quick decision-making. The competition fosters both individual and team skills, requiring intense focus and coordination for success",
           image:
             "https://i.postimg.cc/43P1PNGP/Whats-App-Image-2025-01-14-at-13-46-00-a92c5ee1.jpg",
-          link:"https://docs.google.com/forms/d/e/1FAIpQLSdvzabebA5eH6TjvtFliHy8jnRAQQRjkJD_68D__jvorok4Zg/viewform"
+          link:"/register/table-tennis"
         },
         {
           title: "Badminton",
           description: "Badminton promotes agility, endurance,& control over rapid movements. The competition encourages both individual excellence & team collaboration, testing players' reflexes and strategic thinking.",
           image:
             "https://i.postimg.cc/43s5pHDn/Whats-App-Image-2025-01-14-at-13-46-01-501cd8e6.jpg",
-          link:"https://docs.google.com/forms/d/e/1FAIpQLSdUsnKg4k-x2xQIuhbgZ95U2_JrkcJMFP5-ALXB61FwREA6qg/viewform"
+          link:"/register/badminton"
         },
         {
           title: "Cricket",
           description: "Cricket under Spectrum fosters teamwork, strategy, and skillful play in both batting and bowling. The competition provides a dynamic environment for participants to showcase their abilities and compete at a high level.",
           image:
             "https://i.postimg.cc/L5WrC3tH/19-20250115-115513-0002.png",
+            link:"/register/cricket"
         },
         {
           title: "Futsal",
           description: "Futsal, as a football competition, comes under Spectrum FIT, promoting teamwork, agility, and tactical skills in a dynamic, fast-paced environment. It provides players with a platform to enhance their coordination and strategic thinking.",
           image:
             "https://i.postimg.cc/3rb5xYPP/18-20250115-115513-0001.png",
+            link:"/register/futsal"
         },
         {
           title: "Relay",
           description: "Relay, as a competition under Spectrum FIT, focuses on teamwork, speed, and coordination. It challenges participants to work together efficiently, passing the baton while maintaining peak performance throughout the race.",
           image:
             "https://i.postimg.cc/hj2FxBhQ/17-20250115-115513-0000.png",
+            link:"/register/relay-race"
         },
+        {
+          title:"Tug of War",
+          description:"Tug of War is a classic team sport that tests strength, coordination, and unity. In this game, two teams stand on opposite sides of a rope and pull with all their might, each trying to drag the other team past a marked line.",
+          image:"",
+          link:"/register/tug-of-war"
+        }
       ],
     },
     {

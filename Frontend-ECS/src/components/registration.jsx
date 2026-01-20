@@ -397,19 +397,32 @@ function EventRegister() {
 
         {/* ================= PAYMENT ================= */}
         {branch && branch !== "ECE" && (
-          <div className="border border-blue-700 rounded-xl p-6 text-center space-y-3">
-            <p className="text-blue-300 font-semibold">
-              Upload Payment Screenshot
-            </p>
-            <input
-              type="file"
-              name="paymentScreenshot"
-              accept="image/*"
-              className="block w-full text-sm text-blue-200 file:bg-blue-600 file:border-none file:px-4 file:py-2 file:rounded-lg file:text-white cursor-pointer"
-              required
-            />
-          </div>
-        )}
+  <div className="border border-blue-700 rounded-xl p-6 text-center space-y-4">
+    <p className="text-blue-300 font-semibold text-lg">
+      Pay Registration Fee
+    </p>
+
+    {/* QR CODE */}
+    <img
+      src="/gpayqr.jpeg"
+      alt="GPay QR Code"
+      className="mx-auto w-48 h-48 rounded-xl border border-blue-500"
+    />
+
+    <p className="text-sm text-blue-200">
+      Scan using GPay / PhonePe / Paytm and upload payment screenshot
+    </p>
+
+    <input
+      type="file"
+      name="paymentScreenshot"
+      accept="image/*"
+      className="block w-full text-sm text-blue-200 file:bg-blue-600 file:border-none file:px-4 file:py-2 file:rounded-lg file:text-white cursor-pointer"
+      required
+    />
+  </div>
+)}
+
 
         {/* ================= SUBMIT ================= */}
         <button
