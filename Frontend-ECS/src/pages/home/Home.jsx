@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Gallery from './Gallery';
 import Message from './Message';
 import AboutUs from './AboutUs';
@@ -10,7 +10,15 @@ import { color } from 'framer-motion';
 
 export default function Home() {
 
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 1500); // 1.5 second delay
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="mx-auto w-full space-y-10 overflow-x-hidden">
@@ -48,12 +56,12 @@ export default function Home() {
       <Annual />
       <Gallery />
 
-      {/* ================= POPUP (ONLY ADDITION) ================= */}
+      {/* ================= POPUP ================= */}
       {showPopup && (
         <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70">
           <div className="relative bg-[#020c2f] p-4 rounded-2xl border border-cyan-500 w-[90%] max-w-sm">
 
-            {/* Close Button */}
+            {/* Close */}
             <button
               onClick={() => setShowPopup(false)}
               className="absolute top-2 right-2 text-white text-xl"
@@ -61,24 +69,24 @@ export default function Home() {
               ✕
             </button>
 
-            {/* Poster Image */}
+            {/* Poster */}
             <img
-              src="https://i.postimg.cc/7PztTYWj/indoors-(3).png"   // change path if needed
+              src="https://i.postimg.cc/7PztTYWj/indoors-(3).png"   // change if needed
               alt="Spectrum FIT"
               className="w-full h-auto rounded-xl"
             />
 
-            {/* CTA Button */}
+            {/* Button */}
             <a href="/annual-attraction">
               <button className="mt-4 w-full py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-white">
-                Register
+                Register Now
               </button>
             </a>
 
           </div>
         </div>
       )}
-      {/* ========================================================== */}
+      {/* ========================================= */}
 
     </div>
   );
