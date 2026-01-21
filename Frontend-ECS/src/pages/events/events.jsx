@@ -71,7 +71,7 @@ const Events = () => {
           <img
             src={image}
             alt={title}
-            className="w-full h-48 sm:h-56 object-cover rounded-[20px] border-2 border-[#008bff] shadow-md"
+            className="w-full h-auto object-cover rounded-[20px] border-2 border-[#008bff] shadow-md"
           />
         </div>
         <div className="mt-6 text-center">
@@ -99,54 +99,7 @@ const Events = () => {
 
   // Card data array
   const categories = [
-    {
-      title: " ",
-      cards: [
-        {
-          title: "ECE Orientation",
-          description: "ECS proudly conducts an Orientation for ECE department freshers, where professors and seniors warmly welcome them into the world of electronics and communication. The session offer insights into the branch’s vast opportunities, innovative projects, and the guidance available to help students excel in their journey.",
-          image:
-            "https://i.postimg.cc/xdYFR1kp/Whats-App-Image-2025-01-15-at-19-29-40-435b3f50.jpg",
-          link:'/orientation'
-
-        },
-        {
-          title: "Utkrishta",
-          description: "ECS hosts Utkrishta, a vibrant fresher’s event to welcome the new ECE batch. The celebration fills with fun activities, introductions, and opportunities for students to bond with peers and seniors.New comer batch showcase their talent to crown the title of Mr.Utkrishta and Miss.Utkrishta and make memories of a lifetime.",
-          image:
-            "https://i.postimg.cc/CLCJ3Yys/MJ-9663.jpg",
-          link:'/utkrishtha'
-        },
-        {
-          title: "Speaker Sessions",
-          description: "The Electronics and Communication Society (ECS) hosts an insightful Speaker Session, where industry experts and professionals share their experiences and knowledge. The session aims to inspire and guide students by exploring emerging trends, innovative technologies, and career paths in the field of electronics and communication.",
-          image:
-            "https://res.cloudinary.com/dsj9gr1o3/image/upload/v1724355786/Speakersess_lmlwvl.jpg",
-          link:"/more"
-        },
-       
-        {
-          title: "EC:ArQ",
-          description: "For the first time,ECS presented its inaugural module at Tecnoesis 2024-inspired by epic journey of Interstellar.ARDUINO-QUEST was a space themed challenge in which teams explore,innovate and conquer interstellar challenges using Arduino.",
-          image:
-            "https://i.postimg.cc/rpBGJhYV/Whats-App-Image-2025-01-15-at-19-48-18-45437702.jpg",
-          link:'/more'
-        },
-        {
-          title: "Spectre-Annual Magazine",
-          description: "Spectre, the official magazine of ECS, is a celebration of innovation, creativity, and knowledge in the field of electronics and communication. It showcases insightful articles, groundbreaking projects, and achievements of students and faculty.",
-          image:
-            "https://i.postimg.cc/N0zCw7JS/Whats-App-Image-2025-01-15-at-19-39-43-7a9a294b.jpg",
-          link:"https://drive.google.com/file/d/1dM8ZesvACufTI_GQJ2C8sdzZygvDT3jR/view?usp=drive_link"
-        },
-        {
-          title: "Dehleez",
-          description: "Dehleez, the farewell ceremony organized by ECS, is a heartfelt celebration of the graduating ECE batch. The event honors their achievements, cherishes memories, and bids them an emotional goodbye as they step into a new phase of life.",
-          image: "https://i.postimg.cc/z3YLhX8R/IMG-20250903-WA0011.jpg",
-          link:"/dehleez"
-        },
-      ],
-    },
+    
     {
       title: "SPECTRUM-FIT",
       cards: [
@@ -161,7 +114,7 @@ const Events = () => {
           title: "Table Tennis",
           description: "Table tennis under Spectrum FIT highlights agility, reflexes, and quick decision-making. The competition fosters both individual and team skills, requiring intense focus and coordination for success",
           image:
-            "https://i.postimg.cc/43P1PNGP/Whats-App-Image-2025-01-14-at-13-46-00-a92c5ee1.jpg",
+            "https://i.postimg.cc/RV31yPc8/indoors-20260121-165948-0000.png",
           link:"/register/table-tennis"
         },
         {
@@ -293,6 +246,54 @@ const Events = () => {
         },
       ],
     },
+    {
+      title: " ",
+      cards: [
+        {
+          title: "ECE Orientation",
+          description: "ECS proudly conducts an Orientation for ECE department freshers, where professors and seniors warmly welcome them into the world of electronics and communication. The session offer insights into the branch’s vast opportunities, innovative projects, and the guidance available to help students excel in their journey.",
+          image:
+            "https://i.postimg.cc/xdYFR1kp/Whats-App-Image-2025-01-15-at-19-29-40-435b3f50.jpg",
+          link:'/orientation'
+
+        },
+        {
+          title: "Utkrishta",
+          description: "ECS hosts Utkrishta, a vibrant fresher’s event to welcome the new ECE batch. The celebration fills with fun activities, introductions, and opportunities for students to bond with peers and seniors.New comer batch showcase their talent to crown the title of Mr.Utkrishta and Miss.Utkrishta and make memories of a lifetime.",
+          image:
+            "https://i.postimg.cc/CLCJ3Yys/MJ-9663.jpg",
+          link:'/utkrishtha'
+        },
+        {
+          title: "Speaker Sessions",
+          description: "The Electronics and Communication Society (ECS) hosts an insightful Speaker Session, where industry experts and professionals share their experiences and knowledge. The session aims to inspire and guide students by exploring emerging trends, innovative technologies, and career paths in the field of electronics and communication.",
+          image:
+            "https://res.cloudinary.com/dsj9gr1o3/image/upload/v1724355786/Speakersess_lmlwvl.jpg",
+          link:"/more"
+        },
+       
+        {
+          title: "EC:ArQ",
+          description: "For the first time,ECS presented its inaugural module at Tecnoesis 2024-inspired by epic journey of Interstellar.ARDUINO-QUEST was a space themed challenge in which teams explore,innovate and conquer interstellar challenges using Arduino.",
+          image:
+            "https://i.postimg.cc/rpBGJhYV/Whats-App-Image-2025-01-15-at-19-48-18-45437702.jpg",
+          link:'/more'
+        },
+        {
+          title: "Spectre-Annual Magazine",
+          description: "Spectre, the official magazine of ECS, is a celebration of innovation, creativity, and knowledge in the field of electronics and communication. It showcases insightful articles, groundbreaking projects, and achievements of students and faculty.",
+          image:
+            "https://i.postimg.cc/N0zCw7JS/Whats-App-Image-2025-01-15-at-19-39-43-7a9a294b.jpg",
+          link:"https://drive.google.com/file/d/1dM8ZesvACufTI_GQJ2C8sdzZygvDT3jR/view?usp=drive_link"
+        },
+        {
+          title: "Dehleez",
+          description: "Dehleez, the farewell ceremony organized by ECS, is a heartfelt celebration of the graduating ECE batch. The event honors their achievements, cherishes memories, and bids them an emotional goodbye as they step into a new phase of life.",
+          image: "https://i.postimg.cc/z3YLhX8R/IMG-20250903-WA0011.jpg",
+          link:"/dehleez"
+        },
+      ],
+    }
   ];
 
   return (
