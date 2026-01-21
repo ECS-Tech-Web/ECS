@@ -154,7 +154,7 @@ const Events = () => {
           title: "Chess",
           description: "The chess competition under the Spectrum FIT domain fosters critical thinking, strategy, and mental agility. It serves as a platform for participants to showcase their intellectual prowess and decision-making skills",
           image:
-            "https://i.postimg.cc/Y9SzsKqH/Whats-App-Image-2025-01-14-at-13-45-59-387cf123.jpg",
+            "https://i.postimg.cc/RhBG4w47/4-20260121-163528-0001.png",
           link:"/register/chess"
         },
         {
@@ -168,7 +168,7 @@ const Events = () => {
           title: "Badminton",
           description: "Badminton promotes agility, endurance,& control over rapid movements. The competition encourages both individual excellence & team collaboration, testing players' reflexes and strategic thinking.",
           image:
-            "https://i.postimg.cc/43s5pHDn/Whats-App-Image-2025-01-14-at-13-46-01-501cd8e6.jpg",
+            "https://i.postimg.cc/bvVKyCBN/2-20260121-163528-0000.png",
           link:"/register/badminton"
         },
         {
