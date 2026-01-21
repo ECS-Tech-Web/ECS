@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Gallery from './Gallery';
 import Message from './Message';
 import AboutUs from './AboutUs';
@@ -9,14 +9,17 @@ import "./home.css";
 import { color } from 'framer-motion';
 
 export default function Home() {
+
+  const [showPopup, setShowPopup] = useState(true);
+
   return (
     <div className="mx-auto w-full space-y-10 overflow-x-hidden">
       <ParticlesComponent id='particlejs' />
+
       <div className='absolute w-full top-1/3 flex flex-col'>
-
-
-        <h2 className="glitch text-center">Electronics and Communication Society</h2>
-
+        <h2 className="glitch text-center">
+          Electronics and Communication Society
+        </h2>
 
         <div
           id="hero"
@@ -33,19 +36,50 @@ export default function Home() {
             />
           </span>
         </div>
-        <div class="light-ray1"></div>
-        <div class="light-ray2"></div>
-        
 
-
+        <div className="light-ray1"></div>
+        <div className="light-ray2"></div>
       </div>
-      <div className="pc:h-[90vh] mobile:h-[90vh]" ></div>
+
+      <div className="pc:h-[90vh] mobile:h-[90vh]"></div>
+
       <Message />
       <AboutUs />
       <Annual />
       <Gallery />
+
+      {/* ================= POPUP (ONLY ADDITION) ================= */}
+      {showPopup && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70">
+          <div className="relative bg-[#020c2f] p-4 rounded-2xl border border-cyan-500 w-[90%] max-w-sm">
+
+            {/* Close Button */}
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-2 right-2 text-white text-xl"
+            >
+              ✕
+            </button>
+
+            {/* Poster Image */}
+            <img
+              src="https://i.postimg.cc/7PztTYWj/indoors-(3).png"   // change path if needed
+              alt="Spectrum FIT"
+              className="w-full h-auto rounded-xl"
+            />
+
+            {/* CTA Button */}
+            <a href="/annual-attraction">
+              <button className="mt-4 w-full py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-white">
+                Register
+              </button>
+            </a>
+
+          </div>
+        </div>
+      )}
+      {/* ========================================================== */}
+
     </div>
-
   );
-
 }
