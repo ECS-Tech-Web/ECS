@@ -199,7 +199,6 @@ function EventRegister() {
                 name="participants[]"
                 placeholder={`Participant ${i + 2} Name`}
                 className="input"
-                required
               />
             ))}
           </div>
