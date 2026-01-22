@@ -124,33 +124,33 @@ const Events = () => {
             "https://i.postimg.cc/bvVKyCBN/2-20260121-163528-0000.png",
           link:"/register/badminton"
         },
-        {
-          title: "Cricket",
-          description: "Cricket under Spectrum fosters teamwork, strategy, and skillful play in both batting and bowling. The competition provides a dynamic environment for participants to showcase their abilities and compete at a high level.",
-          image:
-            "https://i.postimg.cc/L5WrC3tH/19-20250115-115513-0002.png",
-            link:"/registercricket"
-        },
-        {
-          title: "Futsal",
-          description: "Futsal, as a football competition, comes under Spectrum FIT, promoting teamwork, agility, and tactical skills in a dynamic, fast-paced environment. It provides players with a platform to enhance their coordination and strategic thinking.",
-          image:
-            "https://i.postimg.cc/3rb5xYPP/18-20250115-115513-0001.png",
-            link:"/registerfutsal"
-        },
-        {
-          title: "Relay",
-          description: "Relay, as a competition under Spectrum FIT, focuses on teamwork, speed, and coordination. It challenges participants to work together efficiently, passing the baton while maintaining peak performance throughout the race.",
-          image:
-            "https://i.postimg.cc/hj2FxBhQ/17-20250115-115513-0000.png",
-            link:"/registerrelay-race"
-        },
-        {
-          title:"Tug of War",
-          description:"Tug of War is a classic team sport that tests strength, coordination, and unity. In this game, two teams stand on opposite sides of a rope and pull with all their might, each trying to drag the other team past a marked line.",
-          image:"",
-          link:"/registertug-of-war"
-        }
+        // {
+        //   title: "Cricket",
+        //   description: "Cricket under Spectrum fosters teamwork, strategy, and skillful play in both batting and bowling. The competition provides a dynamic environment for participants to showcase their abilities and compete at a high level.",
+        //   image:
+        //     "https://i.postimg.cc/L5WrC3tH/19-20250115-115513-0002.png",
+        //     link:"/registercricket"
+        // },
+        // {
+        //   title: "Futsal",
+        //   description: "Futsal, as a football competition, comes under Spectrum FIT, promoting teamwork, agility, and tactical skills in a dynamic, fast-paced environment. It provides players with a platform to enhance their coordination and strategic thinking.",
+        //   image:
+        //     "https://i.postimg.cc/3rb5xYPP/18-20250115-115513-0001.png",
+        //     link:"/registerfutsal"
+        // },
+        // {
+        //   title: "Relay",
+        //   description: "Relay, as a competition under Spectrum FIT, focuses on teamwork, speed, and coordination. It challenges participants to work together efficiently, passing the baton while maintaining peak performance throughout the race.",
+        //   image:
+        //     "https://i.postimg.cc/hj2FxBhQ/17-20250115-115513-0000.png",
+        //     link:"/registerrelay-race"
+        // },
+        // {
+        //   title:"Tug of War",
+        //   description:"Tug of War is a classic team sport that tests strength, coordination, and unity. In this game, two teams stand on opposite sides of a rope and pull with all their might, each trying to drag the other team past a marked line.",
+        //   image:"",
+        //   link:"/registertug-of-war"
+        // }
       ],
     },
     {
