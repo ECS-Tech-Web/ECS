@@ -5,11 +5,11 @@ import { useParams } from "react-router-dom";
 
 const modules = [
   { name: "Chess", isTeam: false },
-  { name: "Cricket", isTeam: false },
+  { name: "Cricket", isTeam: true, maxMembers:11 },
   { name: "Badminton", isTeam: true, maxMembers: 2 },
   { name: "Table Tennis", isTeam: false },
-  { name: "Futsal", isTeam: false },
-  { name: "Relay Race", isTeam: true, maxMembers: 3 },
+  { name: "Futsal", isTeam: true, maxMembers:6 },
+  { name: "Relay Race", isTeam: true, maxMembers: 4 },
   { name: "Tug Of War", isTeam: true, maxMembers: 7 },
 
   { name: "Minimalist", isTeam: false },

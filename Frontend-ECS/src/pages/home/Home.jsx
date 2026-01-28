@@ -71,7 +71,7 @@ export default function Home() {
 
             {/* Poster */}
             <img
-              src="https://i.postimg.cc/7PztTYWj/indoors-(3).png"   // change if needed
+              src="https://i.postimg.cc/y6tpYNNx/outdoors-(5).png"   // change if needed
               alt="Spectrum FIT"
               className="w-full h-auto rounded-xl"
             />
