@@ -27,7 +27,7 @@ const modules = [
   {
     name: "Futsal",
     isTeam: true,
-    maxMembers: 6,
+    maxMembers: 8,
     allowedBranches: ["ECE"],
   },
 
