@@ -4,13 +4,48 @@ import { useParams } from "react-router-dom";
 /* ===================== MODULE CONFIG ===================== */
 
 const modules = [
+  /* ========= SPORTS ========= */
+
   { name: "Chess", isTeam: false },
-  { name: "Cricket", isTeam: true, maxMembers:11 },
-  { name: "Badminton", isTeam: true, maxMembers: 2 },
-  { name: "Table Tennis", isTeam: false },
-  { name: "Futsal", isTeam: true, maxMembers:6 },
-  { name: "Relay Race", isTeam: true, maxMembers: 4 },
-  { name: "Tug Of War", isTeam: true, maxMembers: 7 },
+
+  {
+    name: "Cricket",
+    isTeam: true,
+    maxMembers: 11,
+    allowedBranches: ["ECE"],
+  },
+
+  {
+    name: "Badminton",
+    isTeam: true,
+    maxMembers: 2,
+    allowedBranches: ["ECE", "OTHER"],
+  },
+
+  { name: "Table Tennis", isTeam: false, allowedBranches: ["ECE", "OTHER"] },
+
+  {
+    name: "Futsal",
+    isTeam: true,
+    maxMembers: 6,
+    allowedBranches: ["ECE"],
+  },
+
+  {
+    name: "Relay Race",
+    isTeam: true,
+    maxMembers: 4,
+    allowedBranches: ["ECE", "OTHER"],
+  },
+
+  {
+    name: "Tug Of War",
+    isTeam: true,
+    maxMembers: 7,
+    allowedBranches: ["ECE", "OTHER"],
+  },
+
+  /* ========= CULTURAL ========= */
 
   { name: "Minimalist", isTeam: false },
   { name: "Poesis", isTeam: false },
@@ -18,17 +53,80 @@ const modules = [
   { name: "Memecraft", isTeam: false },
   { name: "Get hired", isTeam: false },
 
-  { name: "Knock your heads", isTeam: true, maxMembers: 2 },
-  { name: "Shabd Showdown", isTeam: true, maxMembers: 2 },
-  { name: "Electrohunt", isTeam: true, maxMembers: 4 },
-  { name: "IPL Auction", isTeam: true, maxMembers: 6 },
-  { name: "Chamber of secrets", isTeam: true, maxMembers: 4 },
-  { name: "Fastweb", isTeam: true, maxMembers: 3 },
-  { name: "Curve Crafters", isTeam: true, maxMembers: 3 },
-  { name: "Eniac", isTeam: true, maxMembers: 2 },
-  { name: "Byte the Code", isTeam: true, maxMembers: 2 },
-  { name: "Smartdroid", isTeam: true, maxMembers: 4 },
+  /* ========= TECHNICAL ========= */
+
+  {
+    name: "Knock your heads",
+    isTeam: true,
+    maxMembers: 2,
+    allowedBranches: ["ECE"],
+  },
+
+  {
+    name: "Shabd Showdown",
+    isTeam: true,
+    maxMembers: 2,
+    allowedBranches: ["ECE"],
+  },
+
+  {
+    name: "Electrohunt",
+    isTeam: true,
+    maxMembers: 4,
+    allowedBranches: ["ECE"],
+  },
+
+  {
+    name: "IPL Auction",
+    isTeam: true,
+    maxMembers: 6,
+    allowedBranches: ["ECE", "OTHER"],
+  },
+
+  {
+    name: "Chamber of secrets",
+    isTeam: true,
+    maxMembers: 4,
+    allowedBranches: ["ECE"],
+  },
+
+  {
+    name: "Fastweb",
+    isTeam: true,
+    maxMembers: 3,
+    allowedBranches: ["ECE"],
+  },
+
+  {
+    name: "Curve Crafters",
+    isTeam: true,
+    maxMembers: 3,
+    allowedBranches: ["ECE"],
+  },
+
+  {
+    name: "Eniac",
+    isTeam: true,
+    maxMembers: 2,
+    allowedBranches: ["ECE"],
+  },
+
+  {
+    name: "Byte the Code",
+    isTeam: true,
+    maxMembers: 2,
+    allowedBranches: ["ECE"],
+  },
+
+  {
+    name: "Smartdroid",
+    isTeam: true,
+    maxMembers: 4,
+    allowedBranches: ["ECE"],
+  },
 ];
+
+/* ===================== SLUG MAP ===================== */
 
 const moduleSlugMap = {
   chess: "Chess",
@@ -57,20 +155,23 @@ const moduleSlugMap = {
   smartdroid: "Smartdroid",
 };
 
-const API_URL = "https://ecs-gdof.onrender.com/api/v1/registrations";
+const BRANCH_OPTIONS = {
+  ECE: "All team members from ECE",
+  OTHER: "Team members from other branches also",
+};
 
-/* ✅ ADDED: WhatsApp Community Link */
-const WHATSAPP_COMMUNITY_LINK = "https://chat.whatsapp.com/H0bA0ylPoBY8zKfgNdDB3M";
+const API_URL = "https://ecs-gdof.onrender.com/api/v1/registrations";
+const WHATSAPP_COMMUNITY_LINK =
+  "https://chat.whatsapp.com/H0bA0ylPoBY8zKfgNdDB3M";
 
 /* ===================== COMPONENT ===================== */
 
 function EventRegister() {
   const { eventName } = useParams();
+
   const [selectedModule, setSelectedModule] = useState("");
   const [branch, setBranch] = useState("");
   const [loading, setLoading] = useState(false);
-
-  /* ✅ ADDED */
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
@@ -95,7 +196,6 @@ function EventRegister() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Registration failed");
 
-      /* ✅ CHANGED */
       setSuccess(true);
       e.target.reset();
       setBranch("");
@@ -114,13 +214,14 @@ function EventRegister() {
     );
   }
 
-  /* ✅ ADDED: SUCCESS SCREEN */
+  /* ===================== SUCCESS ===================== */
+
   if (success) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#020617] via-[#020b2d] to-[#020617] px-4">
-        <div className="bg-[#020c2f]/90 border border-blue-300 rounded-2xl p-10 text-center space-y-6 max-w-md w-full">
+      <div className="min-h-screen flex items-center justify-center bg-[#020617] px-4">
+        <div className="bg-[#020c2f] border border-blue-300 rounded-2xl p-10 text-center space-y-6 max-w-md w-full">
           <h2 className="text-3xl font-bold text-blue-400">
-            Registration Successful
+            Registration Successful 🎉
           </h2>
 
           <p className="text-blue-200">
@@ -128,7 +229,7 @@ function EventRegister() {
           </p>
 
           <a
-            href="https://chat.whatsapp.com/H0bA0ylPoBY8zKfgNdDB3M"
+            href={WHATSAPP_COMMUNITY_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-blue-600 hover:bg-green-600 text-black font-bold px-6 py-3 rounded-xl text-lg transition"
@@ -137,21 +238,22 @@ function EventRegister() {
           </a>
 
           <p className="text-sm text-blue-300">
-            All event updates will be shared in this community
+            All event updates will be shared here
           </p>
         </div>
       </div>
     );
   }
 
+  /* ===================== FORM ===================== */
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#020617] via-[#020b2d] to-[#020617] flex items-center justify-center px-4 py-20">
+    <div className="min-h-screen bg-[#020617] flex items-center justify-center px-4 py-20">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-3xl bg-[#020c2f]/90 backdrop-blur-md border border-blue-800 rounded-2xl shadow-2xl p-10 space-y-10"
+        className="w-full max-w-3xl bg-[#020c2f] border border-blue-800 rounded-2xl p-10 space-y-10"
       >
-        {/* HEADER */}
-        <div className="text-center space-y-2">
+        <div className="text-center">
           <h2 className="text-4xl font-extrabold text-blue-400">
             {selectedModule}
           </h2>
@@ -167,21 +269,22 @@ function EventRegister() {
           <input name="mobile" placeholder="Mobile Number" className="input" required />
           <input name="email" placeholder="Institute Email" className="input" required />
 
-          <select
-            name="branch"
-            value={branch}
-            onChange={(e) => setBranch(e.target.value)}
-            className="input md:col-span-2"
-            required
-          >
-            <option value="">Select Branch</option>
-            {/* <option value="CSE">CSE</option> */}
-            <option value="ECE">All team members from ECE</option>
-            <option value="ME">Team members from other branches also</option>
-            {/* <option value="EE">EE</option> */}
-            {/* <option value="CE">CE</option> */}
-            {/* <option value="EIE">EIE</option> */}
-          </select>
+          {moduleData?.allowedBranches && (
+            <select
+              name="branch"
+              value={branch}
+              onChange={(e) => setBranch(e.target.value)}
+              className="input md:col-span-2"
+              required
+            >
+              <option value="">Select Branch</option>
+              {moduleData.allowedBranches.map((b) => (
+                <option key={b} value={b}>
+                  {BRANCH_OPTIONS[b]}
+                </option>
+              ))}
+            </select>
+          )}
         </div>
 
         {/* TEAM DETAILS */}
@@ -205,15 +308,15 @@ function EventRegister() {
         )}
 
         {/* PAYMENT */}
-        {branch && branch !== "ECE" && (
+        {branch === "OTHER" && (
           <div className="border border-blue-700 rounded-xl p-6 text-center space-y-4">
             <p className="text-blue-300 font-semibold text-lg">
-              Kindly pay the registration fee of 30/- only per non-ECE member in the team
+              Pay ₹30 per non-ECE team member
             </p>
 
             <img
               src="/gpayqr.jpeg"
-              alt="GPay QR Code"
+              alt="QR Code"
               className="mx-auto w-48 h-48 rounded-xl border border-blue-500"
             />
 
@@ -230,24 +333,22 @@ function EventRegister() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 py-4 rounded-xl font-bold text-xl disabled:opacity-50"
+          className="w-full bg-blue-600 py-4 rounded-xl font-bold text-xl disabled:opacity-50"
         >
           {loading ? "Submitting..." : "Submit Registration"}
         </button>
       </form>
 
-      <style>
-        {`
-          .input {
-            background: #020617;
-            border: 1px solid #2563eb;
-            padding: 12px 16px;
-            border-radius: 12px;
-            color: #e0f2fe;
-            width: 100%;
-          }
-        `}
-      </style>
+      <style>{`
+        .input {
+          background: #020617;
+          border: 1px solid #2563eb;
+          padding: 12px 16px;
+          border-radius: 12px;
+          color: #e0f2fe;
+          width: 100%;
+        }
+      `}</style>
     </div>
   );
 }
