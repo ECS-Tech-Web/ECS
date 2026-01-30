@@ -311,7 +311,7 @@ function EventRegister() {
         {branch === "ME" && (
           <div className="border border-blue-700 rounded-xl p-6 text-center space-y-4">
             <p className="text-blue-300 font-semibold text-lg">
-              Pay ₹30 per non-ECE team member
+              Pay ₹50 per team
             </p>
 
             <img
