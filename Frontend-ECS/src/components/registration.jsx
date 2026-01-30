@@ -19,7 +19,7 @@ const modules = [
     name: "Badminton",
     isTeam: true,
     maxMembers: 2,
-    allowedBranches: ["ECE", "OTHER"],
+    allowedBranches: ["ECE", "ME"],
   },
 
   { name: "Table Tennis", isTeam: false, allowedBranches: ["ECE", "OTHER"] },
@@ -35,14 +35,14 @@ const modules = [
     name: "Relay Race",
     isTeam: true,
     maxMembers: 4,
-    allowedBranches: ["ECE", "OTHER"],
+    allowedBranches: ["ECE", "ME"],
   },
 
   {
     name: "Tug Of War",
     isTeam: true,
     maxMembers: 7,
-    allowedBranches: ["ECE", "OTHER"],
+    allowedBranches: ["ECE", "ME"],
   },
 
   /* ========= CULTURAL ========= */
@@ -80,7 +80,7 @@ const modules = [
     name: "IPL Auction",
     isTeam: true,
     maxMembers: 6,
-    allowedBranches: ["ECE", "OTHER"],
+    allowedBranches: ["ECE", "ME"],
   },
 
   {
@@ -157,7 +157,7 @@ const moduleSlugMap = {
 
 const BRANCH_OPTIONS = {
   ECE: "All team members from ECE",
-  OTHER: "Team members from other branches also",
+  ME: "Team members from other branches also",
 };
 
 const API_URL = "https://ecs-gdof.onrender.com/api/v1/registrations";
@@ -308,7 +308,7 @@ function EventRegister() {
         )}
 
         {/* PAYMENT */}
-        {branch === "OTHER" && (
+        {branch === "ME" && (
           <div className="border border-blue-700 rounded-xl p-6 text-center space-y-4">
             <p className="text-blue-300 font-semibold text-lg">
               Pay ₹30 per non-ECE team member
