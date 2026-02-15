@@ -23,45 +23,45 @@ export default function Header() {
     return (
         <>
         <header className="mobile:hidden mobile:absolute xl:block shadow sticky z-50 top-0">
-        <nav className="flex absolute w-full justify-between items-center p-2 bg-transparent">
+        <nav className="flex absolute w-full items-center p-2 bg-transparent">
 
-                <div>
-                    
-                <div className='pl-3'>
-                <Link to="/" className="flex items-center "
-                onClick={window.scroll(0,0)}>
-                        <img
-                            src="https://i.postimg.cc/RZrxm2s0/ecs-new-logo-1-black-bg-2.png"
-                            className="h-[50px]"
-                            alt="ECS Logo"
-                            />
-            </Link>
-                </div>
-                </div>
-                <div className="flex  justify-center navUl ">
+            {/* LEFT */}
+            <div className="flex-1 flex items-center pl-3">
+                <Link to="/" onClick={window.scroll(0, 0)}>
+                <img
+                    src="https://i.postimg.cc/RZrxm2s0/ecs-new-logo-1-black-bg-2.png"
+                    className="h-[50px]"
+                    alt="ECS Logo"
+                />
+                </Link>
+            </div>
 
-                <div className={styles.Naveffect} >
-                    <Link to={"/annual-attraction"}>Annual Attraction
-                    </Link></div>
+            {/* CENTER */}
+            <div className="flex-1 flex justify-center gap-6 navUl">
                 <div className={styles.Naveffect}>
-                    <Link to={"/members"}>Members
-                    </Link></div>
-                <div className={styles.Naveffect}>
-                    <Link to={"./developers"}>Developers
-                    </Link></div>
-                <div className={styles.Naveffect}>
-                    <Link to={"./Resource+Hub"}>Resource Hub
-                    </Link></div>
+                <Link to="/annual-attraction">Annual Attraction</Link>
                 </div>
-
+                <div className={styles.Naveffect}>
+                <Link to="/members">Members</Link>
+                </div>
+                <div className={styles.Naveffect}>
+                <Link to="/developers">Developers</Link>
+                </div>
+                <div className={styles.Naveffect}>
+                <Link to="/Resource+Hub">Resource Hub</Link>
+                </div>
+                <div className={styles.Naveffect}>
+                <Link to="/merch">Merch</Link>
+                </div>
+            </div>
                 
-        {isLoggedIn ? (<div className='pr-4'>
+        {isLoggedIn ? (<div className='flex-1 flex justify-end pr-4'>
                         <Link to="/profile" className="flex items-center">
                             <FaUser size={38}/>
                         </Link>
                     </div>) 
                     : 
-                    <div className='pr-4'>
+                    <div className='flex-1 flex justify-end pr-4'>
                         <Link to="/sign-up" className="flex items-center">
                             <FaUser size={38}/>
                         </Link> </div>
@@ -118,6 +118,9 @@ export default function Header() {
       </li>
       <li  className={classNames(styles.liItem,{[styles.popNav]:isActive})}>
       <Link to="/Resource+Hub">Resource Hub</Link>
+      </li>
+      <li  className={classNames(styles.liItem,{[styles.popNav]:isActive})}>
+      <Link to="/Merch">Merch</Link>
       </li>
       {isLoggedIn?
       (<li className={classNames(styles.liItem,{[styles.popNav]:isActive})}>

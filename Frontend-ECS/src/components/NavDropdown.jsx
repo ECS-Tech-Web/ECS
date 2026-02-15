@@ -35,6 +35,11 @@ const NavDropdown = () => {
       <li className={styles.liItem}>
         Resource Hub
       </li>
+      <li className={styles.liItem}>
+        <Link to="/merch" onClick={toggleActive}>
+          Merch
+        </Link>
+      </li>
     </ul>
   </div>
   <div className={styles.dot}></div>

@@ -20,6 +20,7 @@ import Utkrishta from './pages/Gallerydedicated/Utkrishta.jsx';
 import More from './pages/Gallerydedicated/More.jsx';
 import FAQ from './components/FAQs.jsx';
 import EventRegister from './pages/eventregister.jsx';
+import Merch from "./pages/Merch/Merch.jsx";
 
 
 // import PrivateRoute from './components/PrivateRoute.jsx';
@@ -44,6 +45,7 @@ function App() {
    <>
       <Header />
       <Routes>
+        <Route path="/merch" element={<Merch />} />
         <Route path="/" element={<Home/>} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/annual-attraction" element={<Events />} />
