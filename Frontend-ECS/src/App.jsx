@@ -1,6 +1,5 @@
-import React ,{useEffect}from 'react';
-import { Routes, Route} from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/home/Home.jsx';
 import AboutUs from './pages/home/AboutUs.jsx';
 import Events from './pages/events/events.jsx';
@@ -21,12 +20,13 @@ import More from './pages/Gallerydedicated/More.jsx';
 import FAQ from './components/FAQs.jsx';
 import EventRegister from './pages/eventregister.jsx';
 import Merch from "./pages/Merch/Merch.jsx";
-
-
-// import PrivateRoute from './components/PrivateRoute.jsx';
+import VideoLoader from "./components/video.jsx"; 
 
 function App() {
   const location = useLocation();
+  
+  // Set to true so it always loads the intro video on a fresh page reload
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Save the current page to localStorage on route change
@@ -41,8 +41,18 @@ function App() {
     }
   }, []);
 
+  // Restored this function so the loader knows how to turn off
+  const handleVideoEnd = () => {
+    setIsLoading(false);
+  };
+
+  // Restored the conditional wrapper to properly toggle between screen views
+  if (isLoading) {
+    return <VideoLoader onVideoEnd={handleVideoEnd} />;
+  }
+
   return (
-   <>
+    <div className="animate-fadeIn">
       <Header />
       <Routes>
         <Route path="/merch" element={<Merch />} />
@@ -63,11 +73,9 @@ function App() {
         <Route path='/more' element={<More/>}/>
         <Route path='/faq' element={<FAQ/>}/>
         <Route path="/register/:eventName" element={<EventRegister />} />
-       
-       
       </Routes>
       <Footer />
-      </>
+    </div>
   );
 }
 
