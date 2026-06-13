@@ -133,3 +133,20 @@ h2 {
     font-size: 14px;
   }
 }
+/* Swiper Custom Active Pagination Configuration */
+.custom-pagination .swiper-pagination-bullet-active {
+  background: linear-gradient(to right, #3b82f6, #10b981) !important;
+  width: 1.75rem !important; /* Expansion effect when active */
+  opacity: 1 !important;
+}
+
+.custom-pagination .dynamic-bullet {
+  cursor: pointer;
+  opacity: 0.4;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-pagination .dynamic-bullet:hover {
+  opacity: 0.8;
+  background-color: #3b82f6;
+}
