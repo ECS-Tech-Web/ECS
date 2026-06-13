@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import { Autoplay, EffectCoverflow, Navigation } from "swiper/modules";
+import "swiper/css/navigation";
+import { EffectCoverflow, Navigation } from "swiper/modules"; 
 import { useNavigate } from "react-router-dom";
 
 const ImageCarousel = () => {
@@ -34,11 +34,13 @@ const ImageCarousel = () => {
     "https://i.postimg.cc/wB2BK4Qk/MJ-9364.jpg",
   ];
 
+  // 🚀 Dynamically calculate the middle index (Index 2)
+  const middleIndex = Math.floor(images.length / 2);
+
   return (
-    // Background set to transparent to blend flawlessly into Home's Emerald Matrix section
     <div className="w-full py-6 overflow-hidden bg-transparent">
       
-      {/* 1. HEADER TITLE GRAPHIC */}
+      {/* HEADER TITLE GRAPHIC */}
       <div className="galImg relative w-full max-w-5xl mx-auto px-4 flex justify-center items-center mb-12">
         <img 
           src="https://i.postimg.cc/Y9sWX8Rm/Group-48096102.png" 
@@ -47,13 +49,13 @@ const ImageCarousel = () => {
         />
       </div>
 
-      {/* 2. RECONSTRUCTED RELATIVE VIEWPORT WRAPPER */}
+      {/* RECONSTRUCTED RELATIVE VIEWPORT WRAPPER */}
       <div className="w-full max-w-6xl mx-auto px-4 md:px-12 relative flex flex-col items-center">
         
         {/* SWIPER CONTAINER */}
         <div className="w-full relative z-10 flex items-center justify-center">
           <Swiper
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            initialSlide={middleIndex} // 🚀 CENTER INITIALIZATION: Starts on the middle photo instantly
             effect={"coverflow"}
             grabCursor={true}
             centeredSlides={true}
@@ -62,36 +64,36 @@ const ImageCarousel = () => {
               640: { slidesPerView: 1.8 },
               1024: { slidesPerView: 2.2 },
             }}
-            loop={true}
+            loop={false}
             coverflowEffect={{
               rotate: 0,
-              stretch: -20,     // Adds structural padding to clear edge overlapping 
-              depth: 160,       // Creates an elegant backward focus scale perspective
-              modifier: 2,
-              slideShadows: false, // Disables solid black default boxes for clean neon clarity
+              stretch: 0,
+              depth: 80, 
+              modifier: 1,
+              slideShadows: false, 
             }}
-            modules={[EffectCoverflow, Autoplay, Navigation]}
+            modules={[EffectCoverflow, Navigation]} 
             navigation={{
               nextEl: ".gallery-next",
               prevEl: ".gallery-prev",
             }}
-            className="w-full !pb-10"
+            className="w-full !pb-8"
           >
             {images.map((img, index) => (
-              <SwiperSlide key={index} className="flex justify-center items-center">
-                {/* Cyberpunk Floating Highlight Frame */}
-                <div className="p-2 bg-[#020d07]/80 backdrop-blur-md rounded-[32px] sm:rounded-[40px] md:rounded-[50px] border border-emerald-500/20 shadow-[0_20px_40px_rgba(0,0,0,0.8)] transition-all duration-300 group hover:border-emerald-400/50 hover:shadow-[0_0_25px_rgba(16,185,129,0.2)]">
+              <SwiperSlide key={index} className="flex justify-center items-center will-change-transform">
+                <div className="p-2 bg-[#020d07]/80 backdrop-blur-sm rounded-[32px] sm:rounded-[40px] md:rounded-[50px] border border-emerald-500/20 shadow-[0_15px_30px_rgba(0,0,0,0.6)] group">
                   <img
                     src={img}
                     alt={`Slide ${index + 1}`}
-                    className="w-[72vw] h-[48vw] sm:w-[50vw] sm:h-[33vw] lg:w-[32vw] lg:h-[22vw] rounded-[26px] sm:rounded-[34px] md:rounded-[42px] object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+                    className="w-[72vw] h-[48vw] sm:w-[50vw] sm:h-[33vw] lg:w-[32vw] lg:h-[22vw] rounded-[26px] sm:rounded-[34px] md:rounded-[42px] object-cover"
+                    loading="lazy"
                   />
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
 
-          {/* 3. CLEAN ABSOLUTE POSITIONED ARROWS (Replaces breaking translation blocks) */}
+          {/* ABSOLUTE POSITIONED ARROWS */}
           <button className="gallery-prev absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 active:scale-95 transition-transform hidden sm:block">
             <img src="https://i.postimg.cc/zvKhPnyz/Group-48096101.png" alt="Previous" className="w-full h-full object-contain filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]" />
           </button>
@@ -100,8 +102,8 @@ const ImageCarousel = () => {
           </button>
         </div>
 
-        {/* 4. GROUNDED GALLERY LINK ACTION BUTTON */}
-        <div className="mt-8 mb-4 relative z-20">
+        {/* GALLERY LINK ACTION BUTTON */}
+        <div className="mt-6 mb-4 relative z-20">
           <button
             className="flex justify-center items-center transition-all duration-300 hover:scale-105 active:scale-98 cursor-pointer max-w-[240px] sm:max-w-none"
             onMouseEnter={handleMouseEnter}

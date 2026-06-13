@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper/modules";
+import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 
 const Annual = () => {
   const uniqueData = [
@@ -35,14 +35,15 @@ const Annual = () => {
     },
   ];
 
+  // Dynamically calculate the middle index so it stays centered even if you add more events later
+  const middleIndex = Math.floor(uniqueData.length / 2);
+
   return (
-    // Background set to transparent so it drops cleanly into Home's sticky gradient wrapper
     <div className="w-full py-6 overflow-hidden bg-transparent">
       
       {/* HEADER COMPONENT */}
       <div className="relative w-full max-w-5xl mx-auto px-4 flex justify-center items-center mb-12">
         <div className="text-center relative">
-          {/* Cyan Matrix background text reflection */}
           <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl sm:text-6xl font-black text-cyan-500/5 tracking-[0.2em] uppercase select-none whitespace-nowrap">
             ANNUAL ATTRACTIONS
           </span>
@@ -64,25 +65,25 @@ const Annual = () => {
         </button>
 
         <Swiper
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          initialSlide={middleIndex} // 🚀 CENTER INITIALIZATION FIX: Starts directly on index 2 ("Utkrishta")
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
           slidesPerView={1.2}
           breakpoints={{
             640: { slidesPerView: 1.8 },
-            1024: { slidesPerView: 3, spaceBetween: 40 },
+            1024: { slidesPerView: 3, spaceBetween: 30 },
           }}
-          loop={true}
+          loop={false}
           coverflowEffect={{
-            rotate: 10,       // Prevents harsh viewport edge clipping
-            stretch: -15,     // Opens horizontal gaps between cards 
-            depth: 140,       // Solid foreground/background stack depth separation
+            rotate: 0,
+            stretch: 0,
+            depth: 80,
             modifier: 1,
             slideShadows: false, 
           }}
           pagination={{ clickable: true, dynamicBullets: true }}
-          modules={[EffectCoverflow, Autoplay, Navigation, Pagination]}
+          modules={[EffectCoverflow, Navigation, Pagination]}
           navigation={{
             nextEl: ".swiper-next",
             prevEl: ".swiper-prev",
@@ -90,36 +91,35 @@ const Annual = () => {
           className="w-full !pb-14"
         >
           {uniqueData.map((item, index) => (
-            <SwiperSlide key={index} className="flex justify-center items-center">
+            <SwiperSlide key={index} className="flex justify-center items-center will-change-transform">
               
-           
-              <div className="w-full max-w-[360px] min-h-[480px] flex flex-col justify-between p-5 bg-[#010c12]/90 backdrop-blur-md rounded-2xl border border-cyan-500/20 shadow-[0_20px_40px_rgba(0,0,0,0.7)] transition-all duration-300 group hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+              {/* Card Container */}
+              <div className="w-full max-w-[360px] min-h-[490px] flex flex-col justify-between p-5 bg-[#010c12]/95 backdrop-blur-sm rounded-2xl border border-cyan-500/20 shadow-[0_15px_35px_rgba(0,0,0,0.6)] transition-all duration-300 group hover:border-cyan-400/60">
                 
                 <div>
-      
+                  {/* Card Image */}
                   <div
                     className="h-44 w-full bg-cover bg-center rounded-xl relative overflow-hidden"
                     style={{
                       backgroundImage: `url(${item.image})`,
                     }}
                   >
-           
-                    <div className="absolute inset-0 border border-cyan-400/20 rounded-xl pointer-events-none group-hover:border-cyan-400/50 transition-colors" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#010c12] via-transparent to-transparent opacity-50" />
+                    <div className="absolute inset-0 border border-cyan-400/20 rounded-xl pointer-events-none group-hover:border-cyan-400/40 transition-colors" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#010c12] via-transparent to-transparent opacity-40" />
                   </div>
                   
-                  {/* TEXT PANEL */}
+                  {/* Text Panel */}
                   <div className="mt-5 space-y-3">
                     <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400 tracking-wide">
                       {item.title}
                     </h3>
-                    <p className="text-slate-300 text-[13px] sm:text-[14px] leading-relaxed text-justify font-light opacity-90 line-clamp-6 group-hover:line-clamp-none transition-all duration-300">
+                    <p className="text-slate-300 text-[13px] sm:text-[14px] leading-relaxed text-justify font-light opacity-90 line-clamp-6">
                       {item.description}
                     </p>
                   </div>
                 </div>
 
-            
+                {/* Footer Decor */}
                 <div className="w-full pt-4 flex items-center justify-between opacity-40">
                   <div className="h-[1px] w-1/3 bg-gradient-to-r from-transparent to-cyan-500" />
                   <span className="text-[10px] tracking-widest text-cyan-400 font-mono uppercase">ECS</span>
