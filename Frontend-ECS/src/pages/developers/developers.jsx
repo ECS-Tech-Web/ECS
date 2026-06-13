@@ -1,57 +1,86 @@
 import React from "react";
 import Card from "../cards/Card";
 import "./developers.css";
-
-import cardsData from "./developerData"; // Import the cardsData array
+import cardsData from "./developerData"; 
 
 export default function Developers() {
-  const seniorDeveloper = cardsData[0]; // Assuming the first card is the senior developer
-  const juniorDevelopers = cardsData.slice(1); // The rest are junior developers
-
-  const rows = [];
-  const cardsPerRow = 3;
-
-  for (let i = 0; i < juniorDevelopers.length; i += cardsPerRow) {
-    rows.push(juniorDevelopers.slice(i, i + cardsPerRow));
-  }
+  // Destructure cleanly: first member is the Lead, remaining are Core Devs
+  const [seniorDeveloper, ...juniorDevelopers] = cardsData;
 
   return (
-    <div className="main mx-auto w-full max-w-7xl space-y-10 " >
-      <div className="developers p-5 text-center ">
-        <div className="Title flex justify-center items-center pt-10">
+    /* 🌌 CRISP CYBERNETIC DOT BACKGROUND (No Edge Blur) */
+    <div className="relative min-h-screen w-full bg-[#01080b] bg-[radial-gradient(#059669_0.7px,transparent_0.7px)] [background-size:32px_32px] overflow-hidden pb-20">
+      
+      {/* Background Ambience Spotlights */}
+      <div className="absolute top-[20%] left-[15%] w-[35rem] h-[35rem] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none mix-blend-screen" />
+      <div className="absolute bottom-[15%] right-[10%] w-[40rem] h-[40rem] bg-amber-500/5 rounded-full blur-[160px] pointer-events-none mix-blend-screen" />
+      
+      {/* CORE WRAPPER */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl space-y-16">
+        
+        {/* MAIN PAGE HEADER GRAPHIC */}
+        <div className="Title flex justify-center items-center pt-14 px-4">
           <img
             src="https://i.postimg.cc/N08H4tBS/Group-15-1.png"
-            alt="Developers"
+            alt="Developers Header Graphic"
+            className="h-12 sm:h-16 md:h-20 object-contain filter drop-shadow-[0_0_15px_rgba(16,185,129,0.35)]"
           />
         </div>
 
-        {/* Senior Developer Section */}
-        <div className="senior-developer p-6 mt-[80px] text-center flex items-center justify-center">
-          <Card
-            title={seniorDeveloper.title}
-            description={seniorDeveloper.description}
-            imageUrl={seniorDeveloper.imageUrl}
-          />
-        </div>
+        {/* 1. SENIOR / LEAD DEVELOPER SECTION */}
+        {seniorDeveloper && (
+          <div className="space-y-6 pt-4">
+            <div className="flex items-center justify-between max-w-6xl mx-auto px-4">
+              <div className="h-[1px] flex-grow bg-gradient-to-r from-transparent to-emerald-500/30" />
+              <h2 className="mx-6 text-xl sm:text-2xl font-black tracking-[0.25em] text-emerald-400 uppercase drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">
+                Lead Architect
+              </h2>
+              <div className="h-[1px] flex-grow bg-gradient-to-l from-transparent to-emerald-500/30" />
+            </div>
 
-        {/* Junior Developers Section */}
-        <div className="junior-developers space-y-6">
-          {rows.map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className="row mt-[80px] p-4 w-full flex flex-col sm:flex-row items-center justify-center gap-14 sm:gap-y-0 sm:gap-x-[15vw]"
-            >
-              {row.map((card, cardIndex) => (
+            <div className="flex items-center justify-center p-4">
+              <Card
+                title={seniorDeveloper.title}
+                description={seniorDeveloper.description}
+                imageUrl={seniorDeveloper.imageUrl}
+                instagram={seniorDeveloper.instagram}  
+                facebook={seniorDeveloper.facebook}   
+                linkedin={seniorDeveloper.linkedin}
+                theme="emerald" // 🚀 Unique dynamic theme variant
+              />
+            </div>
+          </div>
+        )}
+
+        {/* 2. JUNIOR / CORE DEVELOPERS SECTION */}
+        {juniorDevelopers.length > 0 && (
+          <div className="space-y-8 pt-6">
+            <div className="flex items-center justify-between max-w-6xl mx-auto px-4">
+              <div className="h-[1px] flex-grow bg-gradient-to-r from-transparent to-amber-500/30" />
+              <h2 className="mx-6 text-xl sm:text-2xl font-black tracking-[0.25em] text-amber-400 uppercase drop-shadow-[0_0_10px_rgba(245,158,11,0.3)]">
+                Development Team
+              </h2>
+              <div className="h-[1px] flex-grow bg-gradient-to-l from-transparent to-amber-500/30" />
+            </div>
+
+            {/* Seamless Auto-wrapping Layout Engine */}
+            <div className="flex flex-wrap items-center justify-center gap-12 max-w-7xl mx-auto px-4 py-4">
+              {juniorDevelopers.map((card, index) => (
                 <Card
-                  key={cardIndex}
+                  key={card.id || index}
                   title={card.title}
                   description={card.description}
                   imageUrl={card.imageUrl}
+                  instagram={card.instagram}  
+                  facebook={card.facebook}   
+                  linkedin={card.linkedin}
+                  theme="amber" // 🚀 Unique dynamic theme variant
                 />
               ))}
             </div>
-          ))}
-        </div>
+          </div>
+        )}
+
       </div>
     </div>
   );
