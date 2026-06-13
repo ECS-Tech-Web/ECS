@@ -43,22 +43,23 @@ const Message = () => {
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-8">
-      {/* SECTION HEADER IMAGE */}
-      <div className="flex justify-center mb-10 w-full">
+    <div className="w-full max-w-5xl mx-auto px-4 py-4 md:py-8 flex flex-col justify-center min-h-[85vh]">
+      
+      {/* SECTION HEADER IMAGE WITH ACCENTUATED GAP */}
+      <div className="flex justify-center mb-12 md:mb-16 w-full">
         <img 
           src="https://i.postimg.cc/hGJ1bPRD/Group-15.png" 
           alt="Messages Header" 
-          className="h-12 md:h-16 object-contain filter drop-shadow-[0_0_12px_rgba(59,130,246,0.5)]" 
+          className="h-11 sm:h-14 md:h-16 object-contain filter drop-shadow-[0_0_15px_rgba(244,63,94,0.4)]" 
         />
       </div>
 
       {/* SWIPER CONTAINER DECORATED AS A PREMIUM DARK CARD */}
-      <div className="relative bg-gradient-to-br from-[#0a1235]/60 to-[#020617]/90 backdrop-blur-xl rounded-xl p-6 md:p-10 border border-slate-800/80 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] overflow-hidden group">
+      <div className="relative bg-gradient-to-br from-[#0c0414]/70 to-[#030008]/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 md:p-12 border border-rose-500/10 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.9)] overflow-hidden group w-full">
         
         {/* Subtle Ambient Background Glows */}
-        <div className="absolute top-0 left-0 w-48 h-48 bg-blue-500/10 rounded-full blur-[80px] pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-0 left-0 w-64 h-64 bg-rose-500/5 rounded-full blur-[90px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-[90px] pointer-events-none" />
 
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -70,11 +71,11 @@ const Message = () => {
             clickable: true,
             el: '.custom-pagination',
             renderBullet: (index, className) => {
-              return `<span class="${className} w-3 h-1.5 rounded-full transition-all duration-300 bg-slate-600 dynamic-bullet"></span>`;
+              return `<span class="${className} w-3 h-1.5 rounded-full transition-all duration-300 bg-slate-700 dynamic-bullet"></span>`;
             },
           }}
           autoplay={{
-            delay: 5000, // Adjusted to 5 seconds to provide adequate reading time
+            delay: 6000, // 6 seconds for better user scanning index comfort
             disableOnInteraction: false,
           }}
           loop
@@ -82,36 +83,38 @@ const Message = () => {
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center min-h-[340px]">
+              {/* FIXED HEIGHT SYSTEM BASED ON BREAKPOINTS PREVENTS SHIFT ALIGNMENT FLICKER */}
+              <div className="flex flex-col md:grid md:grid-cols-12 gap-8 items-center min-h-[460px] sm:min-h-[380px] md:min-h-[310px] lg:min-h-[260px] py-2">
                 
                 {/* 1. PROFILE IMAGE LAYER (Spans 4/12 width) */}
-                <div className="md:col-span-4 flex flex-col items-center justify-center relative">
-                  <div className="relative p-1.5 rounded-full bg-gradient-to-b from-blue-500 to-emerald-400 shadow-[0_0_25px_rgba(59,130,246,0.25)] group-hover:shadow-[0_0_35px_rgba(16,185,129,0.4)] transition-all duration-500">
+                <div className="w-full md:col-span-4 flex flex-col items-center justify-center relative flex-shrink-0">
+                  <div className="relative p-1.5 w-44 h-44 sm:w-52 sm:h-52 md:w-56 md:h-56 aspect-square rounded-full bg-gradient-to-b from-rose-500 via-purple-500 to-transparent shadow-[0_0_30px_rgba(244,63,94,0.15)] group-hover:shadow-[0_0_40px_rgba(168,85,247,0.3)] transition-all duration-500">
                     <img
                       src={slide.image}
                       alt={slide.name}
-                      className="w-44 h-44 sm:w-52 sm:h-52 md:w-56 md:h-56 aspect-square object-cover rounded-full grayscale-[30%] hover:grayscale-0 transition-all duration-500"></img>
+                      className="w-full h-full aspect-square object-cover rounded-full grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                    />
                   </div>
                 </div>
 
                 {/* 2. TEXT CONTENT LAYER (Spans 8/12 width) */}
-                <div className="md:col-span-8 flex flex-col justify-between h-full space-y-4 relative px-2 md:px-4">
+                <div className="w-full md:col-span-8 flex flex-col justify-between h-full space-y-6 relative px-1 sm:px-3 md:px-4 text-center md:text-left">
                   {/* Big Decorative Quotation Mark */}
-                  <Quote className="absolute -top-4 -left-2 w-12 h-12 text-blue-500/10 stroke-[1.5]" />
+                  <Quote className="absolute -top-4 left-0 md:-left-2 w-12 h-12 text-rose-500/10 stroke-[1.5] pointer-events-none hidden sm:block" />
                   
-                  <div className="space-y-3">
+                  <div className="space-y-3 flex-grow flex items-center">
                     {/* Message Body */}
-                    <p className="text-slate-300 text-sm md:text-base leading-relaxed tracking-wide text-justify font-normal pl-2 border-l-2 border-blue-500/30">
+                    <p className="text-slate-300 text-sm sm:text-[15px] md:text-base leading-relaxed tracking-wide text-justify font-normal pl-0 md:pl-4 border-l-0 md:border-l-2 border-rose-500/30">
                       {slide.content}
                     </p>
                   </div>
 
                   {/* Clean Signature Panel */}
-                  <div className="pt-2 text-right border-t border-slate-800/60">
-                    <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent tracking-wide">
+                  <div className="pt-4 text-center md:text-right border-t border-slate-800/60 w-full flex-shrink-0">
+                    <h3 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-rose-400 via-purple-400 to-blue-400 bg-clip-text text-transparent tracking-wide">
                       {slide.name}
                     </h3>
-                    <p className="text-xs font-semibold tracking-widest text-slate-400 mt-0.5">
+                    <p className="text-[10px] sm:text-xs font-semibold tracking-widest text-slate-400 mt-1 uppercase">
                       {slide.designation}
                     </p>
                   </div>
@@ -123,16 +126,16 @@ const Message = () => {
         </Swiper>
 
         {/* 3. OPTIMIZED SLIDER INTERFACE CONTROLS */}
-        <div className="flex items-center justify-between mt-6 pt-4 border-t border-slate-800/40">
+        <div className="flex items-center justify-between mt-8 pt-4 border-t border-slate-900">
           {/* Custom Sleek Navigation Buttons */}
-          <button className="custom-prev p-2 rounded-xl border border-slate-800 bg-slate-900/40 text-slate-400 hover:text-blue-400 hover:border-blue-500/50 transition duration-300 text-sm font-bold">
+          <button className="custom-prev px-3.5 py-1.5 rounded-xl border border-slate-800/80 bg-slate-950/40 text-slate-400 hover:text-rose-400 hover:border-rose-500/30 transition duration-300 text-xs sm:text-sm font-semibold tracking-wide">
             ← Prev
           </button>
           
           {/* Pagination Pills Layout Container */}
           <div className="custom-pagination flex gap-1.5 items-center justify-center"></div>
 
-          <button className="custom-next p-2 rounded-xl border border-slate-800 bg-slate-900/40 text-slate-400 hover:text-blue-400 hover:border-blue-500/50 transition duration-300 text-sm font-bold">
+          <button className="custom-next px-3.5 py-1.5 rounded-xl border border-slate-800/80 bg-slate-950/40 text-slate-400 hover:text-rose-400 hover:border-rose-500/30 transition duration-300 text-xs sm:text-sm font-semibold tracking-wide">
             Next →
           </button>
         </div>
