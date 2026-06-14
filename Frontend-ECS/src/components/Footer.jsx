@@ -1,72 +1,139 @@
 import React from "react";
+import { Mail, ArrowUpRight } from "lucide-react";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const leftLinks = [
+    { name: "Resource Hub", href: "/Resource+Hub" },
+    { name: "Messages", href: "/messages" },
+    { name: "Annual Attraction", href: "/annual-attraction" },
+  ];
+
+  const rightLinks = [
+    { name: "Members", href: "/members" },
+    { name: "Gallery", href: "/photogallery" },
+    { name: "About Us", href: "/about" },
+    { name: "FAQs", href: "/faq" },
+  ];
+
+  const socialLinks = [
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/groups/245209962205928",
+      icon: "https://i.postimg.cc/2jgC8H73/Facebook.png",
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/ecs.nits/",
+      icon: "https://www.citypng.com/public/uploads/preview/hd-white-instagram-round-logo-icon-png-7017516951188732y4dxbmogd.png",
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/electronics-and-communication-society-nit-silchar?trk=blended-typeahead",
+      icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png",
+    },
+  ];
+
   return (
-    <footer className="relative bottom-0 w-full text-white py-8 px-4">
-      <div className="max-w-screen-lg mx-auto flex flex-col md:flex-row justify-between items-center md:items-start">
+    <footer className="relative w-full bg-slate-950 text-slate-400 font-sans border-t border-slate-900 pt-16 pb-8 px-4 overflow-hidden">
+      {/* Background radial accent glow to give it a modern SaaS dashboard feeling */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[150px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="text-center tablet:text-left mb-6 tablet:mb-0 tablet:ml-[5vw] xl:ml-0">
-          <h2 className="text-foot text-base mb-3">QUICK LINKS</h2>
-          <ul className="mobile:-translate-x-[20vw] tablet:transform-none top-0 space-y-2 text-base text-left font-rajdhani">
-            <li><a href="/Resource+Hub" className="hover:text-[#819BE2]">Resource Hub</a></li>
-            <li><a href="" className="hover:text-[#819BE2]">Messages</a></li>
-            <li><a href="/annual-attraction" className="hover:text-[#819BE2]">Annual <br />Attraction</a></li>
-            
-          </ul>
-        </div>
-
-        <div className="flex flex-col items-center mb-6 md:mb-0 xl:-translate-y-[50px]">
-          {/* Logo */}
-          <div className="mb-[25px]">
-            <img
-              src="https://i.postimg.cc/zGFN7qZR/Mask-group.png" // Replace with your logo path
-              alt="Logo"
-              className="h-[114px]"
-            />
+      <div className="max-w-6xl mx-auto">
+        {/* Main Content Grid Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-6 items-start pb-12 border-b border-slate-900">
+          
+          {/* Left Column: Quick Links 1 */}
+          <div className="space-y-4">
+            <h3 className="text-xs font-bold tracking-widest text-slate-500 uppercase">
+              Navigation
+            </h3>
+            <ul className="space-y-2.5 text-sm font-medium">
+              {leftLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="inline-flex items-center gap-1 text-slate-400 hover:text-white transition-colors group"
+                  >
+                    <span>{link.name}</span>
+                    <ArrowUpRight size={12} className="text-slate-600 group-hover:text-indigo-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all opacity-0 group-hover:opacity-100" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <h2 className="text-foot text-base mb-3">CONTACT US</h2>
-          <p className="text-base font-rajdhani mb-3">Email: ecs.nitsilchar2025@gmail.com</p>
+          {/* Center Column: Core Branding & Identity Contact */}
+          <div className="flex flex-col items-center text-center order-first md:order-none sm:col-span-2 md:col-span-1 bg-slate-900/10 border border-slate-900/40 p-6 rounded-2xl backdrop-blur-sm">
+            <a href="/" className="mb-4 block transition-transform hover:scale-105 duration-300">
+              <img
+                src="https://i.postimg.cc/zGFN7qZR/Mask-group.png"
+                alt="ECS Logo"
+                className="h-16 w-auto object-contain filter drop-shadow-[0_0_15px_rgba(99,102,241,0.15)]"
+              />
+            </a>
+            
+            <p className="text-xs font-bold tracking-widest text-white uppercase mb-1">
+              Electronics & Communication Society
+            </p>
+            <p className="text-[11px] text-slate-500 mb-4">NIT Silchar</p>
 
-          {/* Social Links */}
-          <h2 className="text-foot text-base mb-3 bg-gradient-to-b from-top to-bot bg-clip-text text-transparent">FOLLOW US</h2>
-          <div className="flex col gap-2">
-            
-            <a href="https://www.facebook.com/groups/245209962205928" target="_blank" aria-label="Facebook">
-              <img
-                src="https://i.postimg.cc/2jgC8H73/Facebook.png"
-                alt="Facebook"
-                className="h-6 w-6"
-              />
+            <a
+              href="mailto:ecs.nitsilchar2025@gmail.com"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-medium text-slate-300 hover:text-white hover:border-slate-700 transition"
+            >
+              <Mail size={12} className="text-indigo-400" />
+              <span>ecs.nitsilchar2025@gmail.com</span>
             </a>
-            <a href="https://www.instagram.com/ecs.nits/" target="_blank" aria-label="Instagram">
-              <img
-                src="https://www.citypng.com/public/uploads/preview/hd-white-instagram-round-logo-icon-png-7017516951188732y4dxbmogd.png"
-                alt="Facebook"
-                className="h-6 w-6"
-              />
-            </a>
-            <a href="https://www.linkedin.com/company/electronics-and-communication-society-nit-silchar?trk=blended-typeahead" target="_blank" aria-label="Linked In">
-              <img
-                src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png"
-                alt="Facebook"
-                className="h-6 w-6"
-              />
-            </a>
-            
-            
+          </div>
+
+          {/* Right Column: Quick Links 2 */}
+          <div className="space-y-4 sm:text-left md:text-right md:justify-self-end">
+            <h3 className="text-xs font-bold tracking-widest text-slate-500 uppercase">
+              Community
+            </h3>
+            <ul className="space-y-2.5 text-sm font-medium">
+              {rightLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="inline-flex md:flex-row-reverse items-center gap-1 text-slate-400 hover:text-white transition-colors group"
+                  >
+                    <span>{link.name}</span>
+                    <ArrowUpRight size={12} className="text-slate-600 group-hover:text-indigo-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all opacity-0 group-hover:opacity-100" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Bottom Metadata & Social Row */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 text-xs text-slate-600 font-medium">
+          <p>© {currentYear} ECS NIT Silchar. All rights reserved.</p>
+          
+          <div className="flex items-center gap-3">
+            {socialLinks.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                className="p-2 bg-slate-900/50 hover:bg-slate-900 border border-slate-900 hover:border-slate-800 rounded-xl transition-all hover:-translate-y-0.5"
+              >
+                <img
+                  src={social.icon}
+                  alt={social.name}
+                  className="h-4 w-4 object-contain filter brightness-90 hover:brightness-100 transition-all"
+                />
+              </a>
+            ))}
           </div>
         </div>
 
-        <div className="text-center tablet:text-left tablet:mr-[5vw] xl:mr-none">
-          <h2 className="mobile:hidden text-foot text-base mb-3 tablet:block">QUICK LINKS</h2>
-          <ul className="mobile:absolute tablet:static top-[18.1vw] right-[15vw] space-y-2 text-right text-base font-rajdhani">
-            <li><a href="/members" className="hover:text-[#819BE2]">Members</a></li>
-            <li><a href="/photogallery" className="hover:text-[#819BE2]">Gallery</a></li>
-            <li><a href="/about" className="hover:text-[#819BE2]">About Us</a></li>
-            <li><a href="/faq" className="hover:text-[#819BE2]">FAQs</a></li>
-          </ul>
-        </div>
       </div>
     </footer>
   );

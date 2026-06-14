@@ -21,6 +21,7 @@ import FAQ from './components/FAQs.jsx';
 import EventRegister from './pages/eventregister.jsx';
 import Merch from "./pages/Merch/Merch.jsx";
 import VideoLoader from "./components/video.jsx"; 
+import EceLeaderboard from "./pages/ranking/rank.jsx"
 
 function App() {
   const location = useLocation();
@@ -73,6 +74,7 @@ function App() {
         <Route path='/more' element={<More/>}/>
         <Route path='/faq' element={<FAQ/>}/>
         <Route path="/register/:eventName" element={<EventRegister />} />
+        <Route path="/rank" element={<EceLeaderboard/>}/>
       </Routes>
       <Footer />
     </div>
