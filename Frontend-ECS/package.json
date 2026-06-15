@@ -18,7 +18,7 @@
     "ai": "^5.0.93",
     "aos": "^2.3.4",
     "classnames": "^2.5.1",
-    "framer-motion": "^11.17.0",
+    "framer-motion": "^11.18.2",
     "lucide-react": "^0.542.0",
     "mdb-react-ui-kit": "^9.0.0",
     "open": "^11.0.0",
