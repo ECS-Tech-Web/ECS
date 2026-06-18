@@ -70,13 +70,15 @@ export default function Card({ title, description, imageUrl, instagram, facebook
   const style = colorMap[theme] || colorMap.cyan;
 
   return (
-    <div className={`group relative h-[420px] sm:h-[42vh] w-full max-w-[300px] sm:w-[32vh] flex flex-col justify-between p-5 backdrop-blur-md rounded-[24px] border overflow-hidden transition-all duration-500 hover:-translate-y-2 ${style.cardBg} ${style.border} ${style.shadow}`}>
+    /* UPDATED: Increased mobile max-width and widened desktop/tablet sizes */
+    <div className={`group relative min-h-[420px] w-full max-w-[380px] sm:max-w-[340px] md:max-w-[340px] flex flex-col justify-between p-6 backdrop-blur-md rounded-[24px] border overflow-hidden transition-all duration-500 hover:-translate-y-2 ${style.cardBg} ${style.border} ${style.shadow}`}>
       
       {/* 1. TOP GLOW LINE EFFECT */}
       <div className={`absolute top-0 left-1/4 w-1/2 h-[2px] bg-gradient-to-r from-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${style.glowLine}`} />
       
       {/* 2. IMAGE CONTAINER */}
-      <div className="relative w-full h-[55%] shrink-0 flex justify-center items-center overflow-hidden rounded-xl bg-black/30 border border-slate-800/60 group-hover:border-slate-700 transition-colors duration-500">
+      {/* Adjusted aspect ratio to look great with wider dimensions */}
+      <div className="relative w-full h-[220px] shrink-0 flex justify-center items-center overflow-hidden rounded-xl bg-black/30 border border-slate-800/60 group-hover:border-slate-700 transition-colors duration-500">
         <img
           src={imageUrl}
           alt={title}
@@ -85,25 +87,38 @@ export default function Card({ title, description, imageUrl, instagram, facebook
       </div>
 
       {/* 3. INFO PANEL */}
-      <div className="relative z-10 flex flex-col justify-between flex-grow mt-3 text-center min-h-0">
+      <div className="relative z-10 flex flex-col justify-between flex-grow mt-4 text-center min-h-0 space-y-4">
         
         {/* Text Block */}
-        <div className="space-y-1 overflow-hidden">
+        <div className="space-y-1 flex-grow">
           <h2 className={`text-lg sm:text-xl font-bold tracking-wide font-sans truncate group-hover:text-white transition-colors duration-300 ${style.textTitle}`}>
             {title}
           </h2>
-          <p className={`text-xs sm:text-sm text-slate-300 font-medium tracking-wide line-clamp-2 transition-colors duration-300 ${style.textSub}`}>
-            {description}
-          </p>
+          {description && (
+            <p className={`text-xs sm:text-sm text-slate-300 font-medium tracking-wide line-clamp-2 transition-colors duration-300 ${style.textSub}`}>
+              {description}
+            </p>
+          )}
         </div>
 
         {/* 4. PERFECTED HOVER SOCIAL TRAYS */}
-        <div className="flex items-center justify-center gap-3.5 pt-2 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out shrink-0">
+        <div 
+          style={{ 
+            display: 'flex', 
+            flexDirection: 'row', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            gap: '14px',
+            width: '100%'
+          }}
+          className="opacity-100 translate-y-0 sm:opacity-0 sm:translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out shrink-0 pb-1 mx-auto"
+        >
           {instagram && (
             <a 
               href={instagram} 
               target="_blank" 
               rel="noreferrer" 
+              style={{ display: 'inline-flex', flexShrink: 0 }}
               className={`p-2 rounded-xl text-slate-400 border transition-all duration-300 ${style.iconBoxBg} ${style.iconBorder} ${style.iconHover}`}
             >
               <Instagram className="w-4 h-4" />
@@ -114,6 +129,7 @@ export default function Card({ title, description, imageUrl, instagram, facebook
               href={facebook} 
               target="_blank" 
               rel="noreferrer" 
+              style={{ display: 'inline-flex', flexShrink: 0 }}
               className={`p-2 rounded-xl text-slate-400 border transition-all duration-300 ${style.iconBoxBg} ${style.iconBorder} ${style.iconHover}`}
             >
               <Facebook className="w-4 h-4" />
@@ -124,6 +140,7 @@ export default function Card({ title, description, imageUrl, instagram, facebook
               href={linkedin} 
               target="_blank" 
               rel="noreferrer" 
+              style={{ display: 'inline-flex', flexShrink: 0 }}
               className={`p-2 rounded-xl text-slate-400 border transition-all duration-300 ${style.iconBoxBg} ${style.iconBorder} ${style.iconHover}`}
             >
               <Linkedin className="w-4 h-4" />
