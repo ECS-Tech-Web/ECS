@@ -1,7 +1,7 @@
 import React from "react";
 
 const Annual = () => {
-  const uniqueData = [
+  const baseData = [
     {
       title: "ECE Orientation",
       description:
@@ -37,9 +37,11 @@ const Annual = () => {
     },
   ];
 
-  // Landscape Card Layout Component
+  // Repeat the 5 base items 4 times to total 20 distinct data items
+  const uniqueData = Array.from({ length: 20 }, (_, i) => baseData[i % baseData.length]);
+
   const LandscapeCard = ({ item }) => (
-    <div className="w-[420px] h-[180px] flex flex-row items-center p-3 bg-[#010c12]/95 backdrop-blur-sm rounded-xl border border-cyan-500/20 shadow-[0_10px_25px_rgba(0,0,0,0.5)] group hover:border-cyan-400/60 gap-4 flex-shrink-0">
+    <div className="w-[300px] sm:w-[420px] h-[160px] sm:h-[180px] flex flex-row items-center p-3 bg-[#010c12]/95 backdrop-blur-sm rounded-xl border border-cyan-500/20 shadow-lg group hover:border-cyan-400/60 gap-3 sm:gap-4 flex-shrink-0">
       <div
         className="w-[40%] h-full bg-cover bg-center rounded-lg relative flex-shrink-0 overflow-hidden"
         style={{ backgroundImage: `url(${item.image})` }}
@@ -50,10 +52,10 @@ const Annual = () => {
 
       <div className="w-[60%] h-full flex flex-col justify-between py-1 pr-1">
         <div>
-          <h3 className="text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400 tracking-wide truncate">
+          <h3 className="text-sm sm:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400 tracking-wide truncate">
             {item.title}
           </h3>
-          <p className="text-slate-300 text-[11px] leading-relaxed font-light opacity-90 line-clamp-4 mt-1">
+          <p className="text-slate-300 text-[10px] sm:text-[11px] leading-relaxed font-light opacity-90 line-clamp-3 sm:line-clamp-4 mt-1">
             {item.description}
           </p>
         </div>
@@ -70,59 +72,70 @@ const Annual = () => {
   );
 
   return (
-    <div className="w-full py-6 overflow-hidden bg-transparent space-y-6">
-      {/* INLINE CSS FOR KEYFRAMES AND ANIMATIONS */}
+    <div className="w-full py-6 bg-transparent space-y-6 overflow-hidden">
       <style>{`
-        @keyframes marqueeLeft {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+        @keyframes scrollLeft {
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
         }
 
-        @keyframes marqueeRight {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
+        @keyframes scrollRight {
+          0% { transform: translate3d(-50%, 0, 0); }
+          100% { transform: translate3d(0, 0, 0); }
         }
 
-        .animate-inline-left {
-          animation: marqueeLeft 30s linear infinite;
+        .marquee-left {
+          display: flex;
+          width: max-content;
+          animation: scrollLeft 40s linear infinite;
+          will-change: transform;
         }
 
-        .animate-inline-right {
-          animation: marqueeRight 30s linear infinite;
+        .marquee-right {
+          display: flex;
+          width: max-content;
+          animation: scrollRight 40s linear infinite;
+          will-change: transform;
         }
 
-        .marquee-container:hover .animate-inline-left,
-        .marquee-container:hover .animate-inline-right {
+        .marquee-wrapper:hover .marquee-left,
+        .marquee-wrapper:hover .marquee-right {
           animation-play-state: paused;
         }
       `}</style>
 
-      {/* HEADER COMPONENT */}
+      {/* HEADER */}
       <div className="relative w-full max-w-5xl mx-auto px-4 flex justify-center items-center mb-6">
         <div className="text-center relative">
-          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl sm:text-6xl font-black text-cyan-500/5 tracking-[0.2em] uppercase select-none whitespace-nowrap">
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl sm:text-6xl font-black text-cyan-500/5 tracking-[0.2em] uppercase select-none whitespace-nowrap">
             ANNUAL ATTRACTIONS
           </span>
-          <h2 className="relative z-10 text-2xl sm:text-4xl font-extrabold tracking-widest text-white uppercase drop-shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+          <h2 className="relative z-10 text-xl sm:text-4xl font-extrabold tracking-widest text-white uppercase drop-shadow-[0_0_15px_rgba(6,182,212,0.4)]">
             Annual Attractions
           </h2>
         </div>
       </div>
 
-      {/* TOP ROW: LEFT DRIFT */}
-      <div className="relative w-full overflow-hidden marquee-container">
-        <div className="flex gap-6 w-max animate-inline-left">
-          {uniqueData.concat(uniqueData).map((item, index) => (
-            <LandscapeCard key={`top-${index}`} item={item} />
+      {/* TOP ROW: MARQUEE DRIFT LEFT */}
+      <div className="w-full overflow-hidden marquee-wrapper">
+        <div className="marquee-left gap-4 sm:gap-6">
+          {uniqueData.map((item, index) => (
+            <LandscapeCard key={`top-1-${index}`} item={item} />
+          ))}
+          {uniqueData.map((item, index) => (
+            <LandscapeCard key={`top-2-${index}`} item={item} />
           ))}
         </div>
       </div>
 
-      {/* BOTTOM ROW: RIGHT DRIFT */}
-      <div className="relative w-full overflow-hidden marquee-container">
-        <div className="flex gap-6 w-max animate-inline-right">
-          {uniqueData.concat(uniqueData).reverse().map((item, index) => (
-            <LandscapeCard key={`bottom-${index}`} item={item} />
+      {/* BOTTOM ROW: MARQUEE DRIFT RIGHT */}
+      <div className="w-full overflow-hidden marquee-wrapper">
+        <div className="marquee-right gap-4 sm:gap-6">
+          {[...uniqueData].reverse().map((item, index) => (
+            <LandscapeCard key={`bottom-1-${index}`} item={item} />
+          ))}
+          {[...uniqueData].reverse().map((item, index) => (
+            <LandscapeCard key={`bottom-2-${index}`} item={item} />
           ))}
         </div>
       </div>
