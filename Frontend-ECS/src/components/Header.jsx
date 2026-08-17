@@ -5,6 +5,7 @@ import { FaUser } from "react-icons/fa";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isGalleryPinned, setIsGalleryPinned] = useState(false);
     const { isLoggedIn } = useContext(AuthContext);
     const location = useLocation();
 
@@ -18,6 +19,16 @@ export default function Header() {
         { path: "/Resource+Hub", label: "Resource Hub" },
         { path: "/merch", label: "Merch" },
     ];
+
+    // Listen for gallery pinned scroll state
+    useEffect(() => {
+        const handleGalleryState = (e) => {
+            setIsGalleryPinned(e.detail?.isPinned ?? false);
+        };
+
+        window.addEventListener("gallery-scroll-state", handleGalleryState);
+        return () => window.removeEventListener("gallery-scroll-state", handleGalleryState);
+    }, []);
 
     // Automatically snap the dropdown shut on navigation
     useEffect(() => {
@@ -43,8 +54,13 @@ export default function Header() {
     };
 
     return (
-        <header className="sticky top-0 z-[100] w-full bg-zinc-950/20 text-white backdrop-blur-md transition-all duration-300 border-b border-white/[0.05]">
-            
+        <header 
+            className={`sticky top-0 z-[100] w-full bg-zinc-950/20 text-white backdrop-blur-md transition-all duration-500 ease-in-out border-b border-white/[0.05] ${
+                isGalleryPinned 
+                    ? '-translate-y-full opacity-0 pointer-events-none' 
+                    : 'translate-y-0 opacity-100 pointer-events-auto'
+            }`}
+        >
             <div className="mx-auto flex h-24 max-w-[1400px] items-center justify-between px-6">
                 
                 {/* LOGO */}

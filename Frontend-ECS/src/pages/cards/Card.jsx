@@ -70,19 +70,18 @@ export default function Card({ title, description, imageUrl, instagram, facebook
   const style = colorMap[theme] || colorMap.cyan;
 
   return (
-    /* UPDATED: Increased mobile max-width and widened desktop/tablet sizes */
-    <div className={`group relative min-h-[420px] w-full max-w-[380px] sm:max-w-[340px] md:max-w-[340px] flex flex-col justify-between p-6 backdrop-blur-md rounded-[24px] border overflow-hidden transition-all duration-500 hover:-translate-y-2 ${style.cardBg} ${style.border} ${style.shadow}`}>
+    <div className={`group relative min-h-[380px] w-full max-w-[380px] sm:max-w-[340px] md:max-w-[340px] flex flex-col justify-between p-6 backdrop-blur-md rounded-[24px] border overflow-hidden transition-all duration-500 hover:-translate-y-2 ${style.cardBg} ${style.border} ${style.shadow}`}>
       
       {/* 1. TOP GLOW LINE EFFECT */}
       <div className={`absolute top-0 left-1/4 w-1/2 h-[2px] bg-gradient-to-r from-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${style.glowLine}`} />
       
-      {/* 2. IMAGE CONTAINER */}
-      {/* Adjusted aspect ratio to look great with wider dimensions */}
-      <div className="relative w-full h-[220px] shrink-0 flex justify-center items-center overflow-hidden rounded-xl bg-black/30 border border-slate-800/60 group-hover:border-slate-700 transition-colors duration-500">
+      {/* 2. ROUNDED IMAGE CONTAINER */}
+      <div className="mx-auto w-44 h-44 aspect-square shrink-0 flex justify-center items-center overflow-hidden rounded-full bg-slate-950/80 border-2 border-slate-800/60 group-hover:border-slate-700 transition-colors duration-500 shadow-inner">
         <img
           src={imageUrl}
           alt={title}
-          className="h-full w-full object-contain p-2 transition-transform duration-700 ease-out group-hover:scale-105" 
+          /* UPDATED: Fully fills circular frame aligned directly from the top */
+          className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105" 
         />
       </div>
 
@@ -101,7 +100,7 @@ export default function Card({ title, description, imageUrl, instagram, facebook
           )}
         </div>
 
-        {/* 4. PERFECTED HOVER SOCIAL TRAYS */}
+        {/* 4. HOVER SOCIAL TRAYS */}
         <div 
           style={{ 
             display: 'flex', 
