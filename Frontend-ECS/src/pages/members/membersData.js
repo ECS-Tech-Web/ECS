@@ -592,7 +592,7 @@ const teamMembers = [
     title: "Kartikey Agrawal",
     description: "Senior Executive",
     batchYear: "2026",
-    imageUrl: "https://i.postimg.cc/zvWdLKMw/IMG-20250902-205546.png",
+    imageUrl: "https://res.cloudinary.com/dqeenwawp/image/upload/v1787235416/WhatsApp_Image_2026-08-20_at_12.17.39_PM_iabmex.jpg",
     year: 3
   },
 
