@@ -36,12 +36,12 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative w-full bg-slate-950 text-slate-400 font-sans border-t border-slate-900 pt-16 pb-8 px-4 overflow-hidden">
+    <footer className="relative w-full bg-slate-950 text-slate-400 font-sans border-t border-slate-900 pt-16 px-0 overflow-hidden">
       {/* Background radial accent glow to give it a modern SaaS dashboard feeling */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[150px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto">
-        {/* Main Content Grid Grid */}
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Main Content Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-6 items-start pb-12 border-b border-slate-900">
           
           {/* Left Column: Quick Links 1 */}
@@ -111,7 +111,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Metadata & Social Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 text-xs text-slate-600 font-medium">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-8 text-xs text-slate-600 font-medium">
           <p>© {currentYear} ECS NIT Silchar. All rights reserved.</p>
           
           <div className="flex items-center gap-3">
@@ -133,7 +133,15 @@ const Footer = () => {
             ))}
           </div>
         </div>
+      </div>
 
+      {/* Full Width Bottom Image */}
+      <div className="w-full mt-2">
+        <img
+          src="https://res.cloudinary.com/dqeenwawp/image/upload/v1787082662/Gemini_Generated_Image_2xyntu2xyntu2xyn-removebg-preview_csv4wb.png"
+          alt="ECS Banner"
+          className="w-full h-auto object-cover block"
+        />
       </div>
     </footer>
   );

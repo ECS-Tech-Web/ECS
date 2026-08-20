@@ -356,6 +356,7 @@ const teamMembers = [
     description: "Junior Executive",
     imageUrl: "https://res.cloudinary.com/cvh5wxjt/image/upload/f_auto,q_auto/1000128727",
     year: 2,        instagram:"https://www.instagram.com/khushboo__p17?igsh=enlsbmdzcDYzeW4z&igsi=enlsbmdzcDYzeW4z",
+    batchYear: "2026",
     linkedin: "https://www.linkedin.com/in/khushboo-pareek-18a038382?utm_source=share_via&utm_content=profile&utm_medium=member_android"
   },
 
@@ -375,6 +376,7 @@ const teamMembers = [
     description: "Junior Media & Graphic Design Team",
     imageUrl: "https://res.cloudinary.com/k4u0k3qo/image/upload/v1786991394/WhatsApp_Image_2026-08-17_at_11.58.09_PM.jpg",
     year: 2,
+    batchYear: "2026",
     instagram:"  https://www.instagram.com/rawnbir?igsh=MTdhMWFhYmhkdjJ4OA==",
     facebook: "https://www.facebook.com/share/1DEqrEPsMM/",
     linkedin: "https://www.linkedin.com/in/ranabir-mondal -958244244"
@@ -394,6 +396,7 @@ const teamMembers = [
     description: "Junior Literary and PR Member",
     imageUrl: "https://res.cloudinary.com/zeu0stbn/image/upload/v1786992643/IMG-20260812-WA0005.jpg",
     year: 2,   instagram:"https://www.instagram.com/basundhara7050?igsh=aWUxanI3Z3d4OTZ4",
+    batchYear: "2026",
     facebook: "https://www.facebook.com/share/19KDoBPjRF/",
     linkedin: "https://www.linkedin.com/in/basundhara-roy-974683395?utm_source=share_via&utm_content=profile&utm_medium=member_android"
   },
@@ -406,9 +409,209 @@ const teamMembers = [
     description: "Junior Media & Graphics Design Member",
     imageUrl: "https://res.cloudinary.com/ni227fd0/image/upload/f_auto,q_auto/1000267909",
     year: 2,   instagram:"https://www.instagram.com/violina_17_?igsh=MTdhNmc5ZnNiYnoxNA==",
+    batchYear: "2026",
     facebook: "https://www.facebook.com/share/1AmBj9wDLB/",
     linkedin: "https://www.linkedin.com/in/violina-bharali-512a7b382"
   },
+  
+
+{
+    title: "Swetank Swarup",
+    description: "Junior Technical Member",
+    imageUrl: "https://res.cloudinary.com/ipfpatnw/image/upload/v1787046537/dp_pic.jpg",
+    year: 2,
+    batchYear: "2026",
+    instagram:"https://www.instagram.com/_xd.swetank_/",
+    linkedin: "https://www.linkedin.com/in/swetank-swarup-81445539a?utm_source=share_via&utm_content=profile&utm_medium=member_android"  
+  },
+
+
+{
+    title: "Subhankar Paik",
+    description: "Junior Media & Graphics Design Member",
+    imageUrl: "https://res.cloudinary.com/hqtjo4oe/image/upload/v1787059623/s2.jpg",
+    year: 2,
+    batchYear: "2026",
+    instagram:"https://www.instagram.com/subhankar_2718/",
+    facebook: "https://www.facebook.com/share/14mEAM3jRWu/",
+    linkedin: "https://www.linkedin.com/in/subhankar-paik-9786a8414/"
+  },
+
+
+
+
+
+
+{
+    title: "Lakshya Raj",
+    description: "Junior Technical Member",
+    imageUrl: "https://res.cloudinary.com/czrent4c/image/upload/f_auto,q_auto/WhatsApp_Image_2026-08-18_at_7.46.17_PM",
+    year: 2,
+    batchYear: "2026",
+    instagram:"https://www.instagram.com/lakshyaaa_raj",
+    facebook: "https://www.facebook.com/profile.php?id=61593303577440",
+    linkedin: "www.linkedin.com/in/lakshya-raj-975406375/"
+  },
+
+
+
+
+
+
+
+
+{
+    title: "Tanvi Biswas",
+    description: "Junior Media and Graphic Design Member",
+    imageUrl: "https://res.cloudinary.com/xi1lymqm/image/upload/v1787081321/PXL_20251011_130507533.jpg ",
+    year: 2,
+    batchYear: "2026",
+    instagram:"https://www.instagram.com/iwov_tanvi/",
+    facebook: "https://www.facebook.com/…",
+    linkedin: "https://www.linkedin.com/in/tanvi-biswas-61441237a/"
+  },
+
+
+{
+    title: "Gautam Agarwalla",
+    description: "Junior Literary and PR Member",
+    imageUrl: "https://res.cloudinary.com/q62u5b34/image/upload/f_auto,q_auto/WhatsApp_Image_2026-08-18_at_8.04.52_PM",
+    year: 2,
+    batchYear: "2026",
+    instagram:"www.instagram.com/gautam_agarwalla14",
+    facebook: "https://www.facebook.com/profile.php?id=61593200562049",
+    linkedin: "www.linkedin.com/in/gautam-agarwalla-488716306"
+  },
+
+
+{
+   title: "Darpan Pasari",
+   description: "Junior Executive",
+    imageUrl: "https://res.cloudinary.com/r3c5ruer/image/upload/v1787072789/1786548320940_2_1.jpg",
+    year: 2,
+    batchYear: "2026",
+    instagram:"https://www.instagram.com/darpan_pasari12",
+    facebook: "https://www.facebook.com/profile.php?id=61593291188340",
+    linkedin: "https://www.linkedin.com/in/darpan-pasari-99953b348"
+  },
+
+
+
+
+{
+    title: "Shreyash Priyadarshi",
+    description: "Junior Executive",
+    imageUrl: "https://res.cloudinary.com/hjuar0tn/image/upload/f_auto,q_auto/WhatsApp_Image_2026-08-19_at_12.11.30_AM",
+    year: 2,
+    batchYear: "2026",
+    instagram:"www.instagram.com/sshreyash_priyadarshi",
+    facebook: "https://www.facebook.com/profile.php?id=61583067696681",
+    linkedin: "www.linkedin.com/in/shreyash-priyadarshi-036773423/"
+  },
+  {
+    title: "Koustubh Mishra",
+    description: "President",
+    imageUrl: "https://res.cloudinary.com/dqeenwawp/image/upload/v1787206229/Koustubh_lsaujt.jpg",
+    year: 4,
+    batchYear: "2026",
+    instagram: "https://www.instagram.com/mishra.koustubh",
+    facebook: "https://www.facebook.com/share/17wjtsGHDq/",
+    linkedin: "https://www.linkedin.com/in/koustubh-mishra-37147728a"
+  },
+
+
+  {
+    title: "Tejas Pandey",
+    description: "Vice president",
+    imageUrl: "https://res.cloudinary.com/czrent4c/image/upload/f_auto,q_auto/IMG-20260812-WA0061",
+    year: 4,
+    batchYear: "2026",
+    instagram: "https://www.instagram.com/tejesh_pvtt_",
+    facebook: "https://www.facebook.com/share/1ENh5vKSFd/",
+    linkedin: "https://www.linkedin.com/in/tejas-pandey-b45989181"
+  },
+
+
+
+
+
+
+  {
+    title: "Nishita Sarma",
+    description: "General Secretary",
+    imageUrl: "https://res.cloudinary.com/czrent4c/image/upload/f_auto,q_auto/Nishita",
+    year: 3,
+    batchYear: "2026",
+    instagram: "https://www.instagram.com/_nishitasarma_",
+    facebook: "https://www.facebook.com/profile.php?id=61564563847356",
+    linkedin: "https://www.linkedin.com/in/nishita-sarma-529785323"
+  },
+  {
+    title: "Krrish Khandelia",
+    description: "Chief Coordinator",
+    imageUrl: "https://res.cloudinary.com/czrent4c/image/upload/f_auto,q_auto/Krrish",
+    year: 3,
+    batchYear: "2026",
+    instagram: "https://www.instagram.com/krrishhxd",
+    facebook: "https://www.facebook.com/share/1D1LLk57pW/",
+    linkedin: "https://www.linkedin.com/in/krrish-khandelia-095362187"
+  },
+ {
+    title: "Dibakar Kundu",
+    description: "Treasurer",
+    imageUrl: "https://res.cloudinary.com/czrent4c/image/upload/f_auto,q_auto/Dibakar_9000",
+    year: 3,
+    batchYear: "2026",
+  },
+ {
+    title: "Indrani Rabha",
+    description: "Literary & PR Head",
+    imageUrl: "https://res.cloudinary.com/dqeenwawp/image/upload/v1787205929/WhatsApp_Image_2026-08-19_at_5.22.05_PM_wmwn3k.jpg",
+    year: 3,
+    batchYear: "2026",
+  },
+  
+  {
+    title: "Piyush Sharma",
+    description: "Technical Head",
+    imageUrl: "https://res.cloudinary.com/czrent4c/image/upload/f_auto,q_auto/IMG_20250501_223006",
+    year: 3,
+    batchYear: "2026",
+    instagram: "https://www.instagram.com/piyushharma146/",
+    facebook: "https://www.youtube.com/",
+    linkedin: "https://www.linkedin.com/in/piyush-sharma-175042325/"
+  },
+{
+    title: "Sumit Singh",
+    description: "Senior Executive",
+    batchYear: "2026",
+    imageUrl: "https://res.cloudinary.com/czrent4c/image/upload/f_auto,q_auto/Sumit",
+    year: 3
+  },
+  {
+    title: "Kartikey Agrawal",
+    description: "Senior Executive",
+    batchYear: "2026",
+    imageUrl: "https://i.postimg.cc/zvWdLKMw/IMG-20250902-205546.png",
+    year: 3
+  },
+
+
+ 
+  {
+    title: "Shreya Das",
+    description: "Media & Graphics Design Head",
+    imageUrl: "https://res.cloudinary.com/czrent4c/image/upload/f_auto,q_auto/shreya",
+    year: 3,
+    batchYear: "2026",
+    instagram: "https://www.instagram.com/shreya_.179",
+    facebook: "https://www.facebook.com/share/17jKJcddHu/",
+    linkedin: "https://www.linkedin.com/in/shreya-das-2b797a332"
+  },
+
+
+
+
 
 
 

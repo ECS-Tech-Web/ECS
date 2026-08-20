@@ -4,19 +4,16 @@ import "./members.css";
 import teamMembers from "./membersData"; 
 
 export default function Members() {
-  // Add or edit manual state options here:
+
   const availableBatchYears = [ "2026", "2025"];
 
-  // Active dropdown state
-  const [selectedBatchYear, setSelectedBatchYear] = useState("2025");
+  const [selectedBatchYear, setSelectedBatchYear] = useState("2026");
 
-  // Filter team members based on selected year
   const filteredMembers = useMemo(() => {
     if (!Array.isArray(teamMembers)) return [];
     return teamMembers.filter((member) => String(member.batchYear) === String(selectedBatchYear));
   }, [selectedBatchYear]);
 
-  // Group members into years
   const fourthYearMembers = filteredMembers.filter((member) => Number(member.year) === 4);
   const thirdYearMembers = filteredMembers.filter((member) => Number(member.year) === 3);
   const secondYearMembers = filteredMembers.filter((member) => Number(member.year) === 2);
@@ -81,7 +78,7 @@ export default function Members() {
         {/* --- Dropdown Selector --- */}
         <div className="flex flex-col items-center justify-center gap-2 px-4 relative z-20">
           <label className="text-cyan-400/80 text-xs tracking-widest uppercase font-semibold">
-            Select Batch / Year
+            Select Year
           </label>
           <div className="relative min-w-[220px]">
             <select

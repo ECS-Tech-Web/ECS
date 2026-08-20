@@ -81,7 +81,7 @@ export default function Card({ title, description, imageUrl, instagram, facebook
           src={imageUrl}
           alt={title}
           /* UPDATED: Fully fills circular frame aligned directly from the top */
-          className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105" 
+          className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105" 
         />
       </div>
 

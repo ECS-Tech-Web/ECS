@@ -4,7 +4,7 @@ import Gallery from './Gallery';
 import Message from './Message';
 import AboutUs from './AboutUs';
 import Annual from './Annual';
-import ParticlesComponent from '../Particle/Particle';
+import GradientWaves from './gradient';
 import Typewriter from "typewriter-effect";
 import "./home.css";
 
@@ -36,16 +36,37 @@ export default function Home() {
       setWordIndex((prev) => (prev + 1) % words.length);
     }, 2500);
 
-    return () => clearInterval(interval);
+    return () => clearTimeout(interval);
   }, []);
 
   return (
     <div className="w-full min-h-screen bg-[#030712] relative block selection:bg-cyan-500/30 overflow-x-hidden">
-      
-      {/* ================= 1. STICKY HERO ================= */}
+
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden">
-        <div className="pointer-events-auto w-full h-full absolute inset-0">
-          <ParticlesComponent id='particlejs' />
+
+        <div className="pointer-events-auto w-full h-full absolute inset-0 z-0">
+          <GradientWaves
+            horizonColor="#000000"
+            waveColor="#a1c30a"
+            crestColor="#0af72d"
+            speed={0.4}
+            amplitude={2.5}
+            waveScale={0.6}
+            waveRatio={0.9}
+            swell={35}
+            turbulence={20}
+            tilt={1.11}
+            zoom={1}
+            height={5.5}
+            fogDepth={15}
+            detail="medium"
+            brightness={1}
+            opacity={1}
+            mouseInteraction
+            parallaxStrength={0.5}
+            grain
+            grainIntensity={0.05}
+          />
         </div>
 
         <motion.div 
@@ -94,8 +115,7 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="light-ray1"></div>
-          <div className="light-ray2"></div>
+          
         </motion.div>
       </div>
 
@@ -116,14 +136,12 @@ export default function Home() {
       </div>
 
       {/* ================= 3. STICKY ABOUT US + PURPLE SECTION (z-20) ================= */}
-      {/* This entire container slides UP and COVERS Message stickily at top-0. 
-          Once it hits top-0, scrolling continues vertically inside it through Annual & Gallery. */}
       <div className="sticky top-0 min-h-screen w-full bg-gradient-to-b from-[#0a021a] via-[#04000d] to-[#010008] z-20 rounded-t-[40px] border-t-2 border-purple-500/20 shadow-[0_-20px_40px_rgba(168,85,247,0.12),0_-40px_80px_rgba(0,0,0,0.9)]">
         
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-40" />
         <div className="absolute top-10 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-        {/* --- ABOUT US (First full screen inside sticky wrapper) --- */}
+        {/* --- ABOUT US --- */}
         <div className="min-h-screen py-20 px-6 md:p-16 flex items-center justify-center relative">
           <motion.div 
             initial="hidden"
@@ -136,7 +154,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* --- ANNUAL (Normal continuous scroll) --- */}
+        {/* --- ANNUAL --- */}
         <div className="min-h-screen py-20 px-6 md:p-16 flex items-center justify-center relative border-t border-purple-900/30">
           <motion.div 
             initial="hidden"
@@ -149,7 +167,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* --- GALLERY (Normal continuous scroll) --- */}
+        {/* --- GALLERY --- */}
         <div className="min-h-screen py-20 px-6 md:p-16 flex items-center justify-center relative border-t border-purple-900/30">
           <motion.div 
             initial="hidden"
